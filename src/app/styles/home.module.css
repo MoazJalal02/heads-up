@@ -1,0 +1,44 @@
+.hero_container {
+    display: flex;
+    background-image: url(/assets/mobile-bg.png);
+    background-repeat: no-repeat;
+    background-color: #EAF2E3;
+    background-size: 100% auto;
+    height: 320px;
+}
+
+.hero_container h1{
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #EAF2E3;
+    line-height: 40px;
+    max-width: 220px;
+    margin-left: 5.5%;
+    margin-top: 60px;
+    text-shadow: 15px 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.zeiti {
+    color: #A1B084;
+}
+
+.products_container {
+    text-align: center;
+    margin-top: 25px;
+    padding: 0 5.5%;
+}
+
+.products_container h2{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    line-height: 30px;
+}
+
+.products_container ul {
+    padding: 0;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
