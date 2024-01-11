@@ -1,14 +1,27 @@
 import styles from "./styles/home.module.css"
 import { Saira_Condensed } from 'next/font/google'
-import Product from "./Product"
-import { url } from "inspector"
+import Product from "@/components/product/Product"
+import React from "react"
+import { getProducts } from '@/lib/data'
 
 const sairaCondensed = Saira_Condensed({
     weight: ["400","600","700"],
     subsets: ["latin"],
   })
 
-export default function Home() {
+interface Product {
+  _id: number,
+  brand: string,
+  name: string,
+  description: string,
+  price: number,
+  image: string,
+}
+
+export default async function Home() {
+  const products = await getProducts()
+  console.log(products)
+
   return (
     <main>
       <section className={styles.hero_container}>
@@ -16,22 +29,26 @@ export default function Home() {
           check the <span className={styles.zeiti}>Best</span> Caps <span className={styles.zeiti}>Ever</span>
         </h1>
       </section>
-
+      <h1></h1>
       <section className={styles.products_container}>
         <h2 className={sairaCondensed.className}>
           Latest Deals
         </h2>
         <ul>
-          <li>
-            <Product 
-              id={1}
-              brand="Verve" 
-              name="Sage Green baseball" 
-              image = "/assets/caps-images/1.png"
-              price={15}
-            />
-          </li>
-          <li>
+            {products.map((prod :Product) => {
+              return(
+                <li key={prod._id}>
+                  <Product 
+                    id={prod._id}
+                    brand={prod.brand} 
+                    name={prod.name}
+                    image = {prod.image}
+                    price={prod.price}
+                /> 
+              </li>
+              )
+            })}
+          {/* <li>
             <Product 
               id={2}
               brand="Verve" 
@@ -58,7 +75,7 @@ export default function Home() {
               image = "/assets/caps-images/4.png"
               price={20}
             /> 
-          </li>
+          </li> */}
         </ul>
       </section>
     </main>
