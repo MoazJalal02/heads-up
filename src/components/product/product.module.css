@@ -1,6 +1,6 @@
 .porduct_container {
     border: 2px solid #14342B;
-    padding: 6px;
+    padding: 10px 6px;
 }
 
 .product_image {
@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    color: #14342B;
 }
 
 .product_infos p {
@@ -20,6 +21,6 @@
 }
 
 .product_infos .price {
-    color: #14342B;
     margin-bottom: 6px;
+    color: #14342B;
 }

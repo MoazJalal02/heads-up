@@ -12,6 +12,7 @@ html,body {
 
 main {
     background-color: #EAF2E3;
+    padding-bottom: 40px;
 }
 
 a {
@@ -28,6 +29,16 @@ button {
     border-radius: 6px;
     width: 100%;
     padding: 3px 0;
+    transition: all ease .8s;
+}
+
+button p {
+    font-size: .9rem;
+}
+
+button:hover,
+button:focus {
+    opacity: .8;
 }
 
 /* FONT STYLING */
@@ -54,12 +65,12 @@ h2 {
 }
 
 h5 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 400;
 }
 
 p {
-    font-size: .75rem;
+    font-size: .9rem;
 }
 /* NAVBAR STYLING */
 
@@ -110,4 +121,15 @@ li {
 
 .cart--icon {
     width: 16px;
+}
+
+/* FOOTER STYLING */
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    height: 40px;
+    color: #EAF2E3;
 }

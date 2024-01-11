@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Sansita } from 'next/font/google'
 import './globals.css'
-import Header from './components/Header'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const sansita = Sansita({
   weight: ["400"],
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className={`${sansita.className}`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )
