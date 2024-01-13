@@ -1,10 +1,8 @@
-import { NextResponse } from "next/server"
+import { NextResponse,NextRequest } from "next/server"
 import { connectToDb } from "@/lib/dbConnect"
 import { Product } from "@/lib/models/productModel"
-import type { NextApiRequest } from 'next'
  
-export const GET = async (request: NextApiRequest,{ params }: { params: { id: string } }) => {
-
+export const GET = async (_request: NextRequest,{ params }: { params: { id: string } }) => {
     try{
         await connectToDb()
         const { id } = params
