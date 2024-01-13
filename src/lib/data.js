@@ -1,7 +1,9 @@
 import { connectToDb } from "./dbConnect";
 import { Product } from "./models/productModel";
+import { unstable_noStore as noStore } from 'next/cache'; 
 
 export const getProducts = async () => {
+    noStore()
     try {
         connectToDb()
         const products = await Product.find()

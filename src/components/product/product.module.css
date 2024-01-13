@@ -1,26 +1,33 @@
-.porduct_container {
+.porductContainer {
+    width: 100%;
+    height: 100%;
     border: 2px solid #14342B;
-    padding: 10px 6px;
+    padding: 8px 6px;
 }
 
-.product_image {
-    border-radius: 6px;
+.imageContainer {
+    position: relative;
     width: 100%;
+}
+
+.productImage {
+    border-radius: 6px;
+    object-fit: cover;
     height: auto;
 }
 
-.product_infos {
+.productInfos {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     color: #14342B;
 }
 
-.product_infos p {
+.productInfos p {
     color: #888888;
 }
 
-.product_infos .price {
+.productInfos .price {
     margin-bottom: 6px;
     color: #14342B;
 }

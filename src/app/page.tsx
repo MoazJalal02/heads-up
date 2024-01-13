@@ -1,16 +1,15 @@
-import styles from "./styles/home.module.css"
+import styles from "./home.module.css"
 import { Saira_Condensed } from 'next/font/google'
 import Product from "@/components/product/Product"
 import React from "react"
-import { getProducts } from '@/lib/data'
 
 const sairaCondensed = Saira_Condensed({
     weight: ["400","600","700"],
     subsets: ["latin"],
   })
 
-interface Product {
-  _id: number,
+export interface ProductType {
+  _id: string,
   brand: string,
   name: string,
   description: string,
@@ -18,9 +17,23 @@ interface Product {
   image: string,
 }
 
+export const metadata = {
+  title: "Heads Up",
+  description: "Home page description"
+}
+
+const getData = async () => {
+  const res = await fetch("http://localhost:3000/api/products")
+  if(!res.ok){
+    throw new Error("Something went wrong!")
+  }
+
+  return res.json()
+}
+
 export default async function Home() {
-  const products = await getProducts()
-  console.log(products)
+  // const products = await getProducts()
+  const products = await getData()
 
   return (
     <main>
@@ -35,7 +48,7 @@ export default async function Home() {
           Latest Deals
         </h2>
         <ul>
-            {products.map((prod :Product) => {
+            {products.map((prod : ProductType) => {
               return(
                 <li key={prod._id}>
                   <Product 
@@ -44,38 +57,10 @@ export default async function Home() {
                     name={prod.name}
                     image = {prod.image}
                     price={prod.price}
+                    showButton={true}
                 /> 
-              </li>
-              )
+              </li>)
             })}
-          {/* <li>
-            <Product 
-              id={2}
-              brand="Verve" 
-              name="Steel Blue baseball" 
-              image = "/assets/caps-images/2.png"
-              price={15}
-            /> 
-          </li>
-          <li>
-            <Product 
-              id={3}
-              brand="Bars" 
-              name="Midnight Blue baseball" 
-              image = "/assets/caps-images/3.png"
-              price={20}
-            /> 
-          </li>
-
-          <li>
-            <Product 
-              id={4}
-              brand="Bars" 
-              name="Slate Gray baseball" 
-              image = "/assets/caps-images/4.png"
-              price={20}
-            /> 
-          </li> */}
         </ul>
       </section>
     </main>
