@@ -4,7 +4,9 @@ import Product from '../product/Product'
 import { ProductType } from '@/app/page'
 
 const getData = async () => {
-    const res = await fetch("http://localhost:3000/api/products")
+    const apiUrl = process.env.API_URL
+
+    const res = await fetch(`${apiUrl}/api/products`)
     if(!res.ok){
       throw new Error("Something went wrong!")
     }

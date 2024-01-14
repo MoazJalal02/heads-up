@@ -2,6 +2,7 @@ import styles from "./home.module.css"
 import { Saira_Condensed } from 'next/font/google'
 import Product from "@/components/product/Product"
 import React from "react"
+import { unstable_noStore as noStore } from "next/cache"
 
 const sairaCondensed = Saira_Condensed({
     weight: ["400","600","700"],
@@ -23,7 +24,9 @@ export const metadata = {
 }
 
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/products")
+  noStore()
+  const apiUrl = process.env.API_URL
+  const res = await fetch(`${apiUrl}/api/products`)
   if(!res.ok){
     throw new Error("Something went wrong!")
   }
@@ -52,6 +55,7 @@ export default async function Home() {
               return(
                 <li key={prod._id}>
                   <Product 
+                    key={prod._id}
                     id={prod._id}
                     brand={prod.brand} 
                     name={prod.name}
