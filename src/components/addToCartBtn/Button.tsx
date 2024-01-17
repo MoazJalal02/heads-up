@@ -5,7 +5,7 @@ import styles from './button.module.css'
 
 type buttonProps = {
   id:string
-  addToCart: (id:string) => Promise<void>
+  addToCart: ((id:string) => Promise<void>) | undefined
 }
 
 export default function Button({id, addToCart} : buttonProps,) {
@@ -18,6 +18,7 @@ export default function Button({id, addToCart} : buttonProps,) {
         
         async () => {
           setSuccess(false)
+          if(addToCart)
           await addToCart(id)
           setSuccess(true)
         }

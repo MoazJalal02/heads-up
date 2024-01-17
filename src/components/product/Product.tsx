@@ -21,7 +21,7 @@ interface ProductProps {
     image: string
     price: number
     showButton: boolean
-    addToCart: (id:string) => Promise<void>
+    addToCart?: (id:string) => Promise<void>
 }
 
 export default function Product({ id, brand, name, price, image, showButton, addToCart }: ProductProps) {
