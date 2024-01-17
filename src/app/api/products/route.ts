@@ -6,7 +6,7 @@ export const GET = async () => {
   try{
     await connectToDb()
     
-    const products = await Product.find().maxTimeMS(30000)
+    const products = await Product.find()
     return NextResponse.json(products)
   }
   catch(err){
