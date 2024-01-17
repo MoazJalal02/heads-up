@@ -28,7 +28,7 @@ button {
     border: 3px solid #14342B;
     border-radius: 6px;
     width: 100%;
-    padding: 3px 0;
+    padding: 6px 0;
     letter-spacing: .8px;
     transition: all ease .8s;
 }
@@ -115,13 +115,10 @@ nav {
 }
 
 li {
-    list-style: none;
-}
-
-li a{
     display: flex;
     align-items: center;
     gap: 8px;
+    list-style: none;
     font-size: .875rem;
 }
 
@@ -133,34 +130,8 @@ li a{
     width: 14px;
 }
 
-.cart--icon-container {
-    position: relative;
-}
-
 .cart--icon {
     width: 16px;
-}
-
-.cart--icon:hover,
-.cart--icon:focus {
-    border-radius: 50%;
-}
-
-.cart--size {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    font-family: 'sansita';
-    font-weight: 600;
-    width: 17px;
-    height: 17px;
-    top: 0;
-    right: -15px;
-    font-size: .8rem;
-    background-color: #EAF2E3;
-    color: #14342B;
-    border-radius: 50%;
 }
 
 /* FOOTER STYLING */
@@ -172,5 +143,4 @@ footer {
     text-transform: uppercase;
     height: 40px;
     color: #EAF2E3;
-    margin-top: auto;
 }
