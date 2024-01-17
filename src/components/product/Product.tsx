@@ -2,7 +2,7 @@
 
 
 import React from 'react'
-import Button from '../addToCartBtn/Button'
+import Button from '../Button'
 import styles from "./product.module.css"
 import Image from "next/image"
 import Link from 'next/link'
@@ -21,10 +21,9 @@ interface ProductProps {
     image: string
     price: number
     showButton: boolean
-    addToCart: (id:string) => Promise<void>
 }
 
-export default function Product({ id, brand, name, price, image, showButton, addToCart }: ProductProps) {
+export default function Product({ id, brand, name, price, image, showButton }: ProductProps) {
   return (
     <div className={styles.porductContainer}>
         <div className={styles.imageContainer}>
@@ -46,9 +45,7 @@ export default function Product({ id, brand, name, price, image, showButton, add
           <p className={styles.productName}>{name}</p>
           <p className={styles.price}>${price}</p>
         </Link>
-        <div className={styles.buttonContainer}>
-          {showButton && <Button id={id} addToCart={addToCart}/>}
-        </div>
+        {showButton && <Button />}
     </div>
   )
 }

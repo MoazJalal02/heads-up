@@ -3,13 +3,20 @@ import { Saira_Condensed } from 'next/font/google'
 import Product from "@/components/product/Product"
 import React from "react"
 import { unstable_noStore as noStore } from "next/cache"
-import type { ProductType } from "@/lib/types"
-import { addToCart } from "@/components/addToCartBtn/actions"
 
 const sairaCondensed = Saira_Condensed({
     weight: ["400","600","700"],
     subsets: ["latin"],
   })
+
+export interface ProductType {
+  _id: string,
+  brand: string,
+  name: string,
+  description: string,
+  price: number,
+  image: string,
+}
 
 export const metadata = {
   title: "Heads Up",
@@ -55,7 +62,6 @@ export default async function Home() {
                     image = {prod.image}
                     price={prod.price}
                     showButton={true}
-                    addToCart={addToCart}
                 /> 
               </li>)
             })}

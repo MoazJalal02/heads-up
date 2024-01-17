@@ -5,8 +5,6 @@ import { Saira_Condensed } from 'next/font/google'
 import { Sansita } from 'next/font/google'
 import { unstable_noStore as noStore } from 'next/cache';
 import ProductSuggestion from '@/components/productsSuggestion/ProductSuggestion'
-import Button from '@/components/addToCartBtn/Button'
-import { addToCart } from '@/components/addToCartBtn/actions'
 
 const sansita = Sansita({
   weight: ["400"],
@@ -62,7 +60,7 @@ export default async function page({ params }: { params: { id: string } }) {
                         <h4 className={sairaCondensed.className}>1</h4>
                         <button className="amount--btn"><h3>+</h3></button>
                     </div>
-                    <Button id={id} addToCart={addToCart}/>
+                    <button className={styles.addButton}><h4>ADD TO CART</h4></button>
                 </div>
 
                 <section className={styles.suggestContainer}>

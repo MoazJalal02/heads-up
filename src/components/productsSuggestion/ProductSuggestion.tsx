@@ -1,7 +1,8 @@
 import React from 'react'
 import styles from './productSuggestion.module.css'
 import Product from '../product/Product'
-import type { ProductType } from '@/lib/types'
+import { ProductType } from '@/app/page'
+
 const getData = async () => {
     const apiUrl = process.env.API_URL
 
