@@ -1,7 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
+import Account from './Account'
 import { Saira_Condensed } from 'next/font/google'
 import { getCart } from '@/app/cart/actions'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 
 const sairaCondensed = Saira_Condensed({
     weight: ["400","800"],
@@ -10,6 +13,8 @@ const sairaCondensed = Saira_Condensed({
 
 export default async function Header() {
     const cart = await getCart()
+    const session = await getServerSession(authOptions)
+
     return (
         <header>
             <nav>
@@ -21,13 +26,7 @@ export default async function Header() {
                 </Link>
                 <ul className='header--links'>
                     <li>
-                        <Link href="/sign-in">
-                            Account
-                            <svg className='account--icon' width="36" height="48" viewBox="0 0 36 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M29.3333 12.3333C29.3333 18.5924 24.2591 23.6667 18 23.6667C11.7408 23.6667 6.66666 18.5924 6.66666 12.3333C6.66666 6.0741 11.7408 1 18 1C24.2591 1 29.3333 6.0741 29.3333 12.3333Z" stroke="#EAF2E3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M25.6001 29.3333H10.4C9.03287 29.3333 8.3493 29.3333 7.73784 29.4639C5.62162 29.9158 3.79169 31.5039 2.76647 33.7788C2.47025 34.4359 2.2541 35.2167 1.82176 36.7787C1.30227 38.6553 1.04254 39.5937 1.0074 40.3504C0.883501 43.0206 2.32652 45.4315 4.46917 46.1341C5.07646 46.3333 5.89782 46.3333 7.54058 46.3333H28.4595C30.1023 46.3333 30.9237 46.3333 31.5308 46.1341C33.6734 45.4315 35.1164 43.0206 34.9926 40.3504C34.9575 39.5937 34.6977 38.6553 34.1783 36.7787C33.7459 35.2167 33.5298 34.4359 33.2334 33.7788C32.2083 31.5039 30.3782 29.9158 28.262 29.4639C27.6506 29.3333 26.9672 29.3333 25.6001 29.3333Z" stroke="#EAF2E3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                        </Link>
+                        <Account session = {session}/>
                     </li>
                     <li className='cart--icon-container'>
                         <Link href="/cart">

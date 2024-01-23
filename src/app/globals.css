@@ -116,6 +116,7 @@ nav {
 
 li {
     list-style: none;
+    display: flex;
 }
 
 li a{

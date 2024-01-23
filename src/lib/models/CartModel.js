@@ -8,6 +8,11 @@ const cartSchema = new Schema({
           ref: 'CartItem',
         },
       ],
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: false,
+    },
 }, { timestamps: true });
 
 const cartItemSchema = new Schema({

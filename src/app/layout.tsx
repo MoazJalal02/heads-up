@@ -1,16 +1,13 @@
 import type { Metadata } from 'next'
 import { Sansita } from 'next/font/google'
 import './globals.css'
-import Header from '../components/Header'
+import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
-
+import SessionProvider  from './SessionProvider'
 const sansita = Sansita({
   weight: ["400"],
   subsets: ["latin"],
 })
-
-
-// const sairaCondensed = Saira_Condensed({weight:"400"})
 
 export const metadata: Metadata = {
   title: 'HeadsUp',
@@ -25,9 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${sansita.className}`}>
-        <Header />
-        {children}
-        <Footer />
+        <SessionProvider>
+          <Header />
+          {children}
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   )
