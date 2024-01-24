@@ -1,15 +1,11 @@
 import { getServerSession } from "next-auth"
 import styles from './login.module.css'
 import Link from "next/link"
-import { mergeAnonymousIntoUserCart } from "../cart/actions"
 import { authOptions } from "../api/auth/[...nextauth]/nextAuthOptions"
 
 export default async function page() {
     const session = await getServerSession(authOptions)
     console.log("User:",session?.user)
-    if(session?.user){
-        mergeAnonymousIntoUserCart(session.user.id)
-    }
     return (
         <main className={styles.container}> 
             {session ?

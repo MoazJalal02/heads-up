@@ -1,40 +1,41 @@
 "use client"
+
 import Link from "next/link"
 import styles from './account.module.css'
-import { Session } from "next-auth"
 import { useEffect, useRef, useState } from "react"
-import { signIn } from "next-auth/react"
+import { useSession } from "next-auth/react"
 
-export default function Account({ session } : { session: Session }) {
+export default function Account() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const dropdownRef = useRef<HTMLDivElement>(null);
+    const { data: session } = useSession();
 
     useEffect(() => {
-        const handleDocumentClick = (event: MouseEvent) => {
-          if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-            setIsDropdownOpen(false);
-          }
-        };
-      
-        const dropdownButton = dropdownRef.current
-      
+      const handleDocumentClick = (event: MouseEvent) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+          setIsDropdownOpen(false);
+        }
+      };
+
+      const dropdownButton = dropdownRef.current
+
+      if (dropdownButton) {
+        dropdownButton.addEventListener('click', () => {
+          setIsDropdownOpen(!isDropdownOpen);
+        });
+      }
+
+      document.addEventListener('click', handleDocumentClick);
+
+      return () => {
         if (dropdownButton) {
-          dropdownButton.addEventListener('click', () => {
+          dropdownButton.removeEventListener('click', () => {
             setIsDropdownOpen(!isDropdownOpen);
           });
         }
-      
-        document.addEventListener('click', handleDocumentClick);
-      
-        return () => {
-          if (dropdownButton) {
-            dropdownButton.removeEventListener('click', () => {
-              setIsDropdownOpen(!isDropdownOpen);
-            });
-          }
-          document.removeEventListener('click', handleDocumentClick);
-        };
-      }, [isDropdownOpen]);
+        document.removeEventListener('click', handleDocumentClick);
+      };
+    }, [isDropdownOpen]);
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
@@ -50,17 +51,17 @@ export default function Account({ session } : { session: Session }) {
                 </svg>
             </button>
             <div className={styles.dropdown}>
-            {session ? (
+            {session? (
                     <div className={styles.dropdownContent} ref={dropdownRef} style={{ display: `${isDropdownOpen ? 'block' : 'none'}` }}>
-                    {session?.user?.role === "Admin" && <Link href="/admin">Admin</Link>}
-                    <Link className={styles.link} href="/api/auth/signout?callbackUrl=/">Logout</Link>
+                      {session.user?.role == 'Admin'? <Link href="/admin">Admin</Link>:''}
+                      <Link className={styles.link} href="/api/auth/signout?callbackUrl=/">Logout</Link>
                     </div>
                 ) : (
                     <div className={styles.dropdownContent} style={{ display: `${isDropdownOpen ? 'block' : 'none'}` }}>
-                    <Link className={styles.link} href="/api/auth/signin?callbackUrl=/">Login</Link>
+                      <Link className={styles.link} href="/api/auth/signin?callbackUrl=/">Login</Link>
                     </div>
                 )}
             </div>
         </>
-    )
+      )
 }
