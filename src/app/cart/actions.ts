@@ -7,6 +7,7 @@ import { unstable_noStore as noStore } from 'next/cache'
 import type { cartItem, shoppingCart } from '@/lib/types'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../api/auth/[...nextauth]/nextAuthOptions'
+import mongoose from 'mongoose';
 
 export async function getCart(): Promise<shoppingCart | null > {
     connectToDb()
@@ -83,7 +84,7 @@ export async function mergeAnonymousIntoUserCart(userId: string){
     
     const userCart = await Cart.findOne({ "userId": `${userId}` }).populate("items")
 
-    await Cart.startSession().then(async (session) => {
+    await Cart.startSession().then(async (session : mongoose.ClientSession) => {
         session.startTransaction();
 
         try {
