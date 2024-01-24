@@ -7,6 +7,7 @@ import styles from "./product.module.css"
 import Image from "next/image"
 import Link from 'next/link'
 import { Sansita } from 'next/font/google'
+import { objectId } from '@/lib/types'
 
 
 const sansita = Sansita({
@@ -15,13 +16,13 @@ const sansita = Sansita({
 })
 
 interface ProductProps {
-    id: string
+    id: objectId
     brand: string
     name: string
     image: string
     price: number
     showButton: boolean
-    addToCart?: (id:string) => Promise<void>
+    addToCart?: (id:objectId) => Promise<void>
 }
 
 export default function Product({ id, brand, name, price, image, showButton, addToCart }: ProductProps) {

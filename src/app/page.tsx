@@ -46,9 +46,8 @@ export default async function Home() {
         <ul>
             {products.map((prod : ProductType) => {
               return(
-                <li key={prod._id}>
+                <li key={prod.name}>
                   <Product 
-                    key={prod._id}
                     id={prod._id}
                     brand={prod.brand} 
                     name={prod.name}

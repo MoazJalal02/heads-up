@@ -7,6 +7,7 @@ import { unstable_noStore as noStore } from 'next/cache';
 import ProductSuggestion from '@/components/productsSuggestion/ProductSuggestion'
 import Button from '@/components/addToCartBtn/Button'
 import { addToCart } from '@/components/addToCartBtn/actions'
+import { objectId } from '@/lib/types'
 
 const sansita = Sansita({
   weight: ["400"],
@@ -18,7 +19,7 @@ const sairaCondensed = Saira_Condensed({
     subsets: ["latin"],
   })
 
-const getData = async (id:string) => {
+const getData = async (id:objectId) => {
     noStore()
     const res = await fetch(`http://localhost:3000/api/products/${id}`);
   
@@ -29,7 +30,7 @@ const getData = async (id:string) => {
     return res.json();
   };
 
-export default async function page({ params }: { params: { id: string } }) {
+export default async function page({ params }: { params: { id: objectId } }) {
     const { id } = params
     const product = await getData(id)
     return (

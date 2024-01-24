@@ -2,7 +2,7 @@ import styles from './emptyCart.module.css'
 import Link from 'next/link'
 import { Saira_Condensed } from 'next/font/google'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { authOptions } from '@/app/api/auth/[...nextauth]/nextAuthOptions'
 
 const sairaCondensed = Saira_Condensed({
     weight: ["400","600","700"],

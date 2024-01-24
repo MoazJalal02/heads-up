@@ -4,11 +4,6 @@ import clientPromise from "@/lib/mongodb"
 import Google from "next-auth/providers/google"
 import { Adapter } from "next-auth/adapters"
 import { mergeAnonymousIntoUserCart } from "@/app/cart/actions"
-import type { User } from "next-auth"
-
-interface ExtendedUser extends User {
-    role?: string | null | undefined;
-}
 
 export const authOptions: NextAuthOptions = {
     adapter: MongoDBAdapter(clientPromise) as Adapter,

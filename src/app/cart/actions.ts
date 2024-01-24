@@ -6,7 +6,7 @@ import { cookies } from 'next/headers'
 import { unstable_noStore as noStore } from 'next/cache'
 import type { cartItem, shoppingCart } from '@/lib/types'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '../api/auth/[...nextauth]/route'
+import { authOptions } from '../api/auth/[...nextauth]/nextAuthOptions'
 
 export async function getCart(): Promise<shoppingCart | null > {
     connectToDb()
