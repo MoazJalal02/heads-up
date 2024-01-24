@@ -2,10 +2,12 @@
 
 import { useState, useTransition } from "react"
 import styles from './button.module.css'
+import mongoose from "mongoose"
+import { objectId } from "@/lib/types"
 
 type buttonProps = {
-  id:string
-  addToCart: ((id:string) => Promise<void>) | undefined
+  id:objectId
+  addToCart: ((id:objectId) => Promise<void>) | undefined
 }
 
 export default function Button({id, addToCart} : buttonProps,) {

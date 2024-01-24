@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './productSuggestion.module.css'
 import Product from '../product/Product'
-import type { ProductType } from '@/lib/types'
+import type { ProductType, objectId } from '@/lib/types'
 const getData = async () => {
     const apiUrl = process.env.API_URL
 
@@ -14,7 +14,7 @@ const getData = async () => {
   }
   
 
-export default async function ProductSuggestion(props: { id:string }) {
+export default async function ProductSuggestion(props: { id:objectId }) {
     const { id } = props
     const data = await getData()
     const products = data.filter((prod : ProductType) => {

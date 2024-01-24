@@ -1,8 +1,8 @@
 import { getServerSession } from "next-auth"
-import { authOptions } from "../api/auth/[...nextauth]/route"
 import styles from './login.module.css'
 import Link from "next/link"
 import { mergeAnonymousIntoUserCart } from "../cart/actions"
+import { authOptions } from "../api/auth/[...nextauth]/nextAuthOptions"
 
 export default async function page() {
     const session = await getServerSession(authOptions)

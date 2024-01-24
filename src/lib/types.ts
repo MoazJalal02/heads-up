@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 
 export type ProductType = {
-    _id: mongoose.Types.ObjectId
+    _id: objectId
     brand: string
     name: string
     description: string
@@ -10,16 +10,18 @@ export type ProductType = {
   }
 
 export type cartItem = {
-    _id:mongoose.Types.ObjectId
+    _id: objectId
     product: ProductType
     quantity: number
     cart: mongoose.Types.ObjectId
 } 
 
 export type shoppingCart = {
-    _id: mongoose.Types.ObjectId
+    _id: objectId
     items: cartItem[]
     size: number
     subtotal: number
     save: (() => {})
 }
+
+export type objectId = mongoose.Types.ObjectId
