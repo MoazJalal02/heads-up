@@ -3,8 +3,6 @@ import Link from 'next/link'
 import Account from './Account'
 import { Saira_Condensed } from 'next/font/google'
 import { getCart } from '@/app/cart/actions'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 
 const sairaCondensed = Saira_Condensed({
     weight: ["400","800"],
@@ -13,7 +11,6 @@ const sairaCondensed = Saira_Condensed({
 
 export default async function Header() {
     const cart = await getCart()
-    const session = await getServerSession(authOptions)
 
     return (
         <header>
@@ -26,7 +23,7 @@ export default async function Header() {
                 </Link>
                 <ul className='header--links'>
                     <li>
-                        <Account session = {session}/>
+                        <Account />
                     </li>
                     <li className='cart--icon-container'>
                         <Link href="/cart">

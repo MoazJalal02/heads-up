@@ -27,7 +27,7 @@ export const authOptions: NextAuthOptions = {
         })
     ],
     callbacks: {
-        async session({ session, user, token }) {
+        async session({ session, user }) {
             if(session.user){
                 session.user.id = user.id
                 if(session.user.email === "moazadil02@gmail.com"){
