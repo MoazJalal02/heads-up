@@ -29,16 +29,26 @@
 }
 
 .products_container h2{
-    text-decoration: underline;
+    /* text-decoration: underline; */
     text-underline-offset: 3px;
     line-height: 30px;
 }
 
-.products_container ul {
-    padding: 0;
-    margin: 0 auto;
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 10px;
+@media only screen and (min-width: 577px) and (max-width: 844px) {
+    /* styles for phones in landscape mode */
+
+    .hero_container {
+        background-image: url(/assets/big-bg.png);
+        background-size: 130% auto;
+        background-position: -200px -30px;
+    }
+
+    .hero_container h1 {
+        max-width: 400px;
+        line-height: 70px;
+    }
+
+    .products_container {
+        text-align: left;
+    }
 }

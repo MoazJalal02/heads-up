@@ -4,19 +4,19 @@ import { Product } from '@/lib/models/productModel';
 import { Cart, CartItem } from '@/lib/models/CartModel';
 import { createCart, getCart } from '@/app/cart/actions';
 import { revalidatePath } from 'next/cache';
-import mongoose from 'mongoose';
-import { cartItem } from '@/lib/types';
+import { cartItem, objectId } from '@/lib/types';
 
-export const addToCart = async (id: mongoose.Types.ObjectId) => {
+export const addToCart = async (id: objectId, quantity?: number) => {
     const cart = (await getCart()) ?? (await createCart())
     const productInCart = cart.items.some((item) => item.product._id == id);
 
     console.log("Product in cart: ",productInCart)
+    console.log("Quantity: ", quantity)
 
     if(productInCart){
         await CartItem.updateOne(
             { 'product': id }, 
-            { $inc: { quantity: 1 } }
+            { $inc: { quantity: quantity } }
           )
           console.log("Product increased!")
     }
@@ -27,7 +27,7 @@ export const addToCart = async (id: mongoose.Types.ObjectId) => {
             const newCartItem = await CartItem.create({
                 cart: cart._id,
                 product: id,
-                quantity: 1,
+                quantity: quantity,
             });
             
             await Cart.updateOne(

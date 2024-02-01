@@ -30,6 +30,7 @@ export const authOptions: NextAuthOptions = {
         async session({ session, user }) {
             if(session.user){
                 session.user.id = user.id
+                session.user.image = user.image
                 if(session.user.email === "moazadil02@gmail.com"){
                     session.user.role = "Admin"
                 }

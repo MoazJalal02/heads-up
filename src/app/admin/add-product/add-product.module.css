@@ -1,0 +1,110 @@
+.container {
+    background-color: #EAF2E3;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20%;
+}
+
+.container label{
+    font-size: 1.75rem;
+    color: #14342B;
+    width: 80%;
+}
+
+.inputField {
+  box-sizing: border-box;
+  margin-top: 2px;
+  height: 75px;
+  width: 100%;
+  border: 3px solid #BECFA0;
+  padding-left: 12px;
+  border-radius: 4px;
+  color: #14342B;
+  font-size: 1.75rem;
+  display: flex;
+  background: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+.inputField::-webkit-outer-spin-button,
+.inputField::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputField[type=number] {
+    appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.inputField::placeholder {
+    color: #AFAFAF;
+    opacity: .8;
+}
+
+.inputField:focus {
+    border: 3px solid #14342B;
+}
+
+.descriptionLabel textarea {
+    height: 200px;
+    resize: none;
+    text-overflow: ellipsis;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.button {
+    margin-top: 20px;
+    font-size: 2rem;
+    background: none;
+    color: #14342B;
+    height: 70px;
+    width: 30%;
+    transition: all ease 1s;
+}
+
+.button:hover,
+.button:focus {
+    opacity: 1;
+    background-color: #14342B;
+    color: #EAF2E3;
+}
+
+
+.loader {
+    position: relative;
+    width: 17.5px;
+    height: 17.5px;
+}
+
+.spinner {
+    width: 100%;
+    aspect-ratio: 1;
+    --_c:no-repeat radial-gradient(farthest-side,#EAF2E3 92%,#0000);
+    background: 
+      var(--_c) top,
+      var(--_c) left,
+      var(--_c) right,
+      var(--_c) bottom;
+    background-size: 5px 5px;
+    animation: l7 1s infinite;
+  }
+  @keyframes l7 {to{transform: rotate(.5turn)}
+}
+
+.successMessage {
+  font-size: 1.2rem;
+}
+
+.vissible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}

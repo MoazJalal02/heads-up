@@ -47,9 +47,11 @@ export default function Product({ id, brand, name, price, image, showButton, add
           <p className={styles.productName}>{name}</p>
           <p className={styles.price}>${price}</p>
         </Link>
-        <div className={styles.buttonContainer}>
-          {showButton && <Button id={id} addToCart={addToCart}/>}
-        </div>
+        { showButton && 
+          <div className={styles.buttonContainer}>
+            {<Button id={id} addToCart={addToCart}/>}
+          </div>
+        }
     </div>
   )
 }

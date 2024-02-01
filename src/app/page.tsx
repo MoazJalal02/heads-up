@@ -1,10 +1,7 @@
 import styles from "./home.module.css"
 import { Saira_Condensed } from 'next/font/google'
-import Product from "@/components/product/Product"
-import React from "react"
+import Products from "@/components/products/Products"
 import { unstable_noStore as noStore } from "next/cache"
-import type { ProductType } from "@/lib/types"
-import { addToCart } from "@/components/addToCartBtn/actions"
 
 const sairaCondensed = Saira_Condensed({
     weight: ["400","600","700"],
@@ -43,22 +40,7 @@ export default async function Home() {
         <h2 className={sairaCondensed.className}>
           Latest Deals
         </h2>
-        <ul>
-            {products.map((prod : ProductType) => {
-              return(
-                <li key={prod.name}>
-                  <Product 
-                    id={prod._id}
-                    brand={prod.brand} 
-                    name={prod.name}
-                    image = {prod.image}
-                    price={prod.price}
-                    showButton={true}
-                    addToCart={addToCart}
-                /> 
-              </li>)
-            })}
-        </ul>
+        {<Products products = {products}/>}
       </section>
     </main>
   )

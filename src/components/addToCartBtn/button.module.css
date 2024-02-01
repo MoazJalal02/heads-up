@@ -30,5 +30,13 @@
 }
 
 .successMessage {
-    font-size: .7rem;
+  font-size: 1.2rem;
+}
+
+.vissible {
+  display: block;
+}
+
+.hidden {
+  display: none;
 }

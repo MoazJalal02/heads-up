@@ -11,6 +11,7 @@ const sairaCondensed = Saira_Condensed({
 type CartProps = {
     cart: shoppingCart
 }
+
 export default function Cart({cart}:CartProps) {
     return (
         <div>

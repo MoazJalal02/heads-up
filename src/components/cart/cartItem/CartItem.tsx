@@ -17,7 +17,7 @@ const sairaCondensed = Saira_Condensed({
     subsets: ["latin"],
 })
 
-interface cartItemType {
+type cartItemProps = {
   id: string
   image: string,
   brand: string,
@@ -26,7 +26,7 @@ interface cartItemType {
   quantity: number
 }
 
-export default function CartItem({id, image, brand, name, price, quantity } : cartItemType) {
+export default function CartItem({id, image, brand, name, price, quantity } : cartItemProps) {
   return (
     <div className={styles.container}>
         <div className={styles.imageContainer}>

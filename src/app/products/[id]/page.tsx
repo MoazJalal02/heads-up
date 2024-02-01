@@ -5,9 +5,9 @@ import { Saira_Condensed } from 'next/font/google'
 import { Sansita } from 'next/font/google'
 import { unstable_noStore as noStore } from 'next/cache';
 import ProductSuggestion from '@/components/productsSuggestion/ProductSuggestion'
-import Button from '@/components/addToCartBtn/Button'
 import { addToCart } from '@/components/addToCartBtn/actions'
 import { objectId } from '@/lib/types'
+import QuantAddBtn from '@/components/addToCartBtn/quantAddBtn'
 
 const sansita = Sansita({
   weight: ["400"],
@@ -17,9 +17,9 @@ const sansita = Sansita({
 const sairaCondensed = Saira_Condensed({
     weight: ["400","600","700"],
     subsets: ["latin"],
-  })
+})
 
-const getData = async (id:objectId) => {
+const getProductData = async (id:objectId) => {
     noStore()
     const res = await fetch(`http://localhost:3000/api/products/${id}`);
   
@@ -28,11 +28,24 @@ const getData = async (id:objectId) => {
     }
   
     return res.json();
-  };
+};
+
+const getProductsData = async () => {
+    const apiUrl = process.env.API_URL
+
+    const res = await fetch(`${apiUrl}/api/products`)
+    if(!res.ok){
+      throw new Error("Something went wrong!")
+    }
+  
+    return res.json()
+}
 
 export default async function page({ params }: { params: { id: objectId } }) {
     const { id } = params
-    const product = await getData(id)
+    const product = await getProductData(id)
+    const products = await getProductsData()
+
     return (
         <main className={sairaCondensed.className}>
             <div className={styles.imageContainer}>
@@ -56,22 +69,13 @@ export default async function page({ params }: { params: { id: objectId } }) {
                     <h5 className={sansita.className}>{product.description}</h5>
                     <h3>$15</h3>
                 </div>
-
-                <div className={`${styles.buttonsContainer} ${sansita.className}`}>
-                    <div className={styles.amountBtnContainer}>
-                        <button className="amount--btn"><h3>-</h3></button>
-                        <h4 className={sairaCondensed.className}>1</h4>
-                        <button className="amount--btn"><h3>+</h3></button>
-                    </div>
-                    <Button id={id} addToCart={addToCart}/>
-                </div>
-
+                {<QuantAddBtn id={id} addToCart={addToCart}/>}
                 <section className={styles.suggestContainer}>
                     <h3>You might Like</h3>
                     <div className={styles.productsContainer}>
-                        <Image src='/assets/leftArrow.svg' width={20} height={20} alt=''/>
-                        {<ProductSuggestion id={id}/>}
-                        <Image src='/assets/rightArrow.svg' width={20} height={20} alt=''/>
+                        {/* <Image src='/assets/leftArrow.svg' width={20} height={20} alt=''/> */}
+                        {<ProductSuggestion id={id} products={products}/>}
+                        {/* <Image src='/assets/rightArrow.svg' width={20} height={20} alt=''/> */}
                     </div>
                 </section>
             </div>

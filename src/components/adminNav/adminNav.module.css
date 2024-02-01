@@ -1,0 +1,24 @@
+.linksContainer {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 15px;
+    justify-content: space-between;
+    gap: 20px;
+    width: 600px;
+}
+
+.linksContainer a {
+    font-size: 2rem;
+    color: #BECFA0;
+    transition: all ease .8s;
+}
+
+.linksContainer a:hover {
+    color: #EAF2E3;
+}
+
+.linksContainer .active {
+    color: #EAF2E3;
+    text-decoration: underline 2px solid;
+    text-underline-offset: 6px;
+}
