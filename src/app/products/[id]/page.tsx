@@ -21,7 +21,8 @@ const sairaCondensed = Saira_Condensed({
 
 const getProductData = async (id:objectId) => {
     noStore()
-    const res = await fetch(`http://localhost:3000/api/products/${id}`);
+    const apiUrl = process.env.API_URL
+    const res = await fetch(`${apiUrl}/api/products/${id}`);
   
     if (!res.ok) {
       console.log('error');

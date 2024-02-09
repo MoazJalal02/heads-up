@@ -14,15 +14,12 @@ export default function AdminNav(){
     ]
     const pathname = usePathname()
     const isActive = (path:string) => path == pathname
-    console.log('pathname: ',pathname)
-
     return (
         <nav>
             <ul className={styles.linksContainer}>
                 { 
                 
                     navLinks.map((link,i)=>{
-                        console.log('link paht: ',link.path)
                         return(<li key={i}><Link className={`${isActive(link.path)? styles.active:''}`}  href={link.path}>{link.name}</Link></li>)
                     })
                 }

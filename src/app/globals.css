@@ -30,7 +30,7 @@ button {
     width: 100%;
     padding: 3px 0;
     letter-spacing: .8px;
-    transition: all ease .8s;
+    transition: all ease 1s;
 }
 
 button p {

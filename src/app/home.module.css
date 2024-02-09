@@ -23,13 +23,15 @@
 }
 
 .products_container {
-    text-align: center;
-    margin-top: 25px;
+    margin-top: 50px;
     padding: 0 5.5%;
 }
 
 .products_container h2{
     /* text-decoration: underline; */
+    font-weight: 800;
+    font-size: 2.5rem;
+    text-transform: uppercase;
     text-underline-offset: 3px;
     line-height: 30px;
 }

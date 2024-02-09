@@ -10,6 +10,10 @@ const sairaCondensed = Saira_Condensed({
     subsets: ["latin"],
 })
 
+export const metadata = {
+    title: "Heads Up Admin Center",
+    description: "Admin Center description"
+}
 
 
 export default async function AdminLayout({
