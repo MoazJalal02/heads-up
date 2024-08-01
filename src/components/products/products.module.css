@@ -1,37 +1,37 @@
-.productsContainer {
-    padding: 0;
-    margin: 0 auto;
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    scroll-behavior: smooth;
+.products_carousel {
+  padding: 0;
+  margin: 0 auto;
+  margin-right: -20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 9px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-behavior: smooth;
 }
 
-.productsContainer li{
-    flex: 0 0 60%;
-    height: 100%;
+.products_carousel li{
+  flex: 0 0 180px;
+  height: 100%;
 }
 
-.productsContainer::-webkit-scrollbar {
-    height: 8px;
+.products_carousel::-webkit-scrollbar {
+  height: 8px;
 }
   
-  .productsContainer::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 4px;
+  .products_carousel::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
 }
   
-  .productsContainer::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+  .products_carousel::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
 }
 
 .slickDots {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
   }
   
 .dot {
@@ -42,14 +42,41 @@
   cursor: pointer;
 }
 
+.products_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(156px, 1fr));
+  margin: 0 auto;
+  gap: 24px 12px;
+  padding: 0;
+}
+
+
 /* Optional: Style the active dot differently */
 .dot.active {
   background-color: #333;
 }
   
-@media only screen and (min-width: 577px) and (max-width: 844px) {
-    .products_container ul {
+@media only screen and (min-width: 768px){
+  /* styles for desktops */ 
+    .products_grid {
+      display: grid;
+      margin: 0 auto;
+      place-items: center;
+      width: 80%;
+      grid-template-columns:  repeat(auto-fill, minmax(322px, 1fr));
+      gap: 32px 16px;
+      padding: 0;
+    }
+
+    .products_carousel ul {
         grid-template-columns: repeat(3,1fr);
         gap: 20px;
     }
+
+    .products_grid li {
+      max-width: 322px;
+    }
 }
+
+
+

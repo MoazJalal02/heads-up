@@ -1,8 +1,7 @@
 .porductContainer {
     width: 100%;
-    height: 100%;
-    border: 2px solid #14342B;
-    padding: 8px 6px;
+    display: flex;
+    flex-direction: column;
 }
 
 .imageContainer {
@@ -20,16 +19,32 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    color: #14342B;
+    gap: 0px;
+    color: var(--black);
 }
 
-.productInfos p {
-    color: #888888;
+.productInfos h3, .productInfos p{
+    color: var(--black);
 }
 
 .productInfos .price {
     margin-bottom: 6px;
     color: #14342B;
+}
+
+.productInfos .priceContainer {
+    display: flex;
+    gap: 8px;
+}
+
+.productInfos .prevPrice {
+    text-decoration-line: line-through;
+    font-feature-settings: 'ordn' on;
+    color: var(--dark-gray);
+}
+
+.productInfos .newPrice {
+    color: var(--red);
 }
 
 .buttonContainer {
@@ -39,4 +54,11 @@
     justify-content: center;
     height: 26px;
     width: 100%;
+}
+
+@media only screen and (min-width: 768px){
+    /* styles for desktops */
+    .productInfos {
+        gap: 58px;
+    }
 }

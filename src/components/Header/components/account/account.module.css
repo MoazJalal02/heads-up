@@ -1,5 +1,7 @@
 .button {
     display: flex;
+    background: none;
+    border: none;
     align-items: center;
     gap: 8px;
     height: 100%;
@@ -48,4 +50,11 @@
 
 .dropdown:hover .dropdownContent {
     display: block;
+}
+
+@media only screen and (min-width: 780px) {
+    .accountIcon {
+        width: 31px;
+        height: 41px;
+    }
 }

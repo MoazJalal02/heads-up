@@ -1,24 +1,20 @@
 .nav {
     display: flex;
-    height: 70px;
-    width: 89%;
+    height: 78px;
+    width: 88.8%;
+    min-width: 320px;
     margin: 0 auto;
 }
 
 .headerLogo {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
 }
 
 .logoText {
-    font-size: 1.5rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-}
-
-.logoIcon {
-    width: 42px;
 }
 
 .logoIcon,
@@ -30,13 +26,15 @@
     display: flex;
     align-items: center;
     margin-left: auto;
-    color: #EAF2E3;
+    color: var(--white);
     gap: 8px;
 }
 
 .li {
+    cursor: pointer;
     position: relative;
-    height: 100%;
+    align-items: center;
+    height: 32px;
     display: flex;
 }
 
@@ -49,24 +47,73 @@
     height: 2px;
     background-color: #14342B;
     transition: width 0.5s ease-out;
-  }
-  
+}
+
 .li:hover::before {
     width: 100%;
-    background-color: #EAF2E3;
-  }
+    background-color: var(--white);
+}
 
-.li a{
+.li a {
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: .875rem;
 }
 
-.account--icon,.cart--icon {
-    cursor: pointer;
+.subHeader {
+    display: none;
 }
 
-.account--icon {
-    width: 14px;
+@media only screen and (min-width: 768px) {
+    .nav {
+        height: 120px;
+        width: 85.275%;
+        min-width: 320px;
+        margin: 0 auto;
+    }
+
+    .headerLogo {
+        gap: 16px;
+    }
+
+    .logoIcon {
+        width: 110px;
+    }
+
+    .subHeader {
+        height: 60px;
+        width: 100%;
+        background-color: var(--dark-gray);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 36px;
+    }
+
+    .searchBarContainer {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    .headerLinks {
+        margin-left: 20px;
+        gap: 16px;
+    }
+
+    .searchIcon {
+        display: none;
+    }
+
+    .li::before {
+        position: absolute;
+        bottom: -12px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: #14342B;
+        transition: width 0.5s ease-out;
+    }
+
 }

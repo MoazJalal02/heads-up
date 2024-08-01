@@ -1,19 +1,11 @@
 'use client'
 
-
 import React from 'react'
 import Button from '../addToCartBtn/Button'
 import styles from "./product.module.css"
 import Image from "next/image"
 import Link from 'next/link'
-import { Sansita } from 'next/font/google'
 import { objectId } from '@/lib/types'
-
-
-const sansita = Sansita({
-  weight: ["400"],
-  subsets: ["latin"],
-})
 
 interface ProductProps {
     id: objectId
@@ -23,9 +15,13 @@ interface ProductProps {
     price: number
     showButton: boolean
     addToCart?: (id:objectId) => Promise<void>
+    discount? : {
+      isDiscount: boolean
+      amount: number
+    }
 }
 
-export default function Product({ id, brand, name, price, image, showButton, addToCart }: ProductProps) {
+export default function Product({ id, brand, name, price, image, showButton, discount, addToCart }: ProductProps) {
   return (
     <div className={styles.porductContainer}>
         <div className={styles.imageContainer}>
@@ -43,9 +39,16 @@ export default function Product({ id, brand, name, price, image, showButton, add
           ></Image>
         </div>
         <Link href={`/products/${id}`} className={styles.productInfos}>
-          <h5 className={styles.productBrand}>{brand}</h5>
+          <h3 className={styles.productBrand}>{brand}</h3>
           <p className={styles.productName}>{name}</p>
-          <p className={styles.price}>${price}</p>
+          {discount?.isDiscount?  
+            <div className={styles.priceContainer}>
+              <p className={`${styles.price} ${styles.prevPrice}`}>${price}</p>
+              <p className={`${styles.price} ${styles.newPrice}`}>${Math.floor(price - (price*discount.amount))}</p>
+            </div>
+            : 
+            <p className={styles.price}>${price}</p>
+          }
         </Link>
         { showButton && 
           <div className={styles.buttonContainer}>

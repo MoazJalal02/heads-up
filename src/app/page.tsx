@@ -1,12 +1,7 @@
 import styles from "./home.module.css"
-import { Saira_Condensed } from 'next/font/google'
 import Products from "@/components/products/Products"
 import { unstable_noStore as noStore } from "next/cache"
-
-const sairaCondensed = Saira_Condensed({
-    weight: ["400","600","700"],
-    subsets: ["latin"],
-  })
+import Link from "next/link"
 
 export const metadata = {
   title: "Heads Up",
@@ -31,16 +26,45 @@ export default async function Home() {
   return (
     <main>
       <section className={styles.hero_container}>
-        <h1 className={sairaCondensed.className}>
-          check the <span className={styles.zeiti}>Best</span> Caps <span className={styles.zeiti}>Ever</span>
-        </h1>
+        <div className={styles.callToActionContainer}>
+          <h1>
+            check the Best Caps Ever
+          </h1>
+          <Link href='/'className={styles.actionBtn}> <h3> SHOP NOW </h3></Link>      
+        </div>
       </section>
       <h1></h1>
       <section className={styles.products_container}>
-        <h2 className={sairaCondensed.className}>
-          Latest Deals
-        </h2>
-        {<Products products = {products}/>}
+        <div className={styles.categoryContainer}>
+          <Link href='/brands'>
+            <h2>
+              SHOP BY BRANDS
+            </h2>
+          </Link>
+          <div className={styles.brandsContainer}>
+            <Link href='' className={styles.brandButton}>
+              <h3>VERVE</h3>
+            </Link>
+            <Link href='' className={styles.brandButton}>
+              <h3>GRILD</h3>
+            </Link>
+            <Link href='' className={styles.brandButton}>
+              <h3>BARS</h3>
+            </Link>
+          </div>
+        </div>
+        <div className={styles.categoryContainer}>
+          <Link href='/top-deals'>
+            <h2>TOP DEALS</h2>
+          </Link>
+          {<Products products = {products} isDiscount={true} layout='carousel'/>}
+        </div>
+        <div className={styles.categoryContainer}>
+          <h2>
+            NEW ARRIVALS
+          </h2>
+          {<Products products = {products} isDiscount={false} layout='carousel'/>}
+        </div>
       </section>
     </main>
   )

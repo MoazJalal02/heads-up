@@ -1,5 +1,7 @@
 .button {
     padding: 0 3px;
+    background: none;
+    border: none;
     display: flex;
     align-items: center;
 }
@@ -8,24 +10,19 @@
     opacity: 1;
 }
 
-.cartIcon {
-    width: 20px;
-}
-
 .cartSize {
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    font-family: 'sansita';
     font-weight: 600;
-    width: 17px;
-    height: 17px;
-    top: 0;
-    right: -15px;
-    font-size: .8rem;
-    background-color: #EAF2E3;
-    color: #14342B;
+    width: 12px;
+    height: 12px;
+    top: -2px;
+    right: -5px;
+    font-size: .625rem;
+    background-color: var(--primary-green);
+    color: var(--white);
     border-radius: 50%;
 }
 
@@ -106,4 +103,21 @@
 
 .asp {
     color: #7A8450;
+}
+
+@media only screen and (min-width: 780px) {
+    .cartIcon {
+        width: 36px;
+        height: 38px;
+    }
+
+    .cartSize {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: -16px;
+        right: -12px;
+        font-size: 1rem;
+        border-radius: 50%;
+    }
 }

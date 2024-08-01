@@ -9,11 +9,15 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 type ProductsProps = {
     products: any
+    isDiscount?: boolean
+    layout: "carousel" | "grid"
+    brand?: string
 }
 
-export default function Products({ products }: ProductsProps) {
+export default function Products({ products, isDiscount, layout, brand }: ProductsProps) {
     const [activeIndex, setActiveIndex] = useState<number>(0);
     const containerRef = useRef<HTMLUListElement>(null);
+    const filteredProducts = brand? products.filter((prod: ProductType) => prod.brand === brand): products;
 
     useEffect(() => {
         const container = containerRef.current;
@@ -51,32 +55,56 @@ export default function Products({ products }: ProductsProps) {
       };
 
     return (
-        <section>
-            <ul className={styles.productsContainer} ref={containerRef}>
-            {products.map((prod : ProductType) => {
-                    return(
-                        <li key={prod.name}>
-                            <Product 
-                                id={prod._id}
-                                brand={prod.brand} 
-                                name={prod.name}
-                                image = {prod.image}
-                                price={prod.price}
-                                showButton={false}
-                                addToCart={addToCart}
-                            /> 
-                        </li>)
-                })}
-            </ul>
-            <div className={styles.slickDots}>
-            {[...products].map((_, index) => (
-                <div
-                    key={index}
-                    onClick={() => handleDotClick(index)}
-                    className={`${styles.dot} ${index === activeIndex ? styles.active : ''}`}
-                ></div>
-            ))}
-            </div>
-        </section>
+        <>
+            {layout === 'carousel'? 
+            <>
+                <ul className={styles.products_carousel} ref={containerRef}>
+                {filteredProducts.map((prod : ProductType) => {
+                        return(
+                            <li key={prod.name}>
+                                <Product 
+                                    id={prod._id}
+                                    brand={prod.brand} 
+                                    name={prod.name}
+                                    image = {prod.image}
+                                    price={prod.price}
+                                    showButton={false}
+                                    addToCart={addToCart}
+                                    discount={{isDiscount:isDiscount? isDiscount: false, amount:.33}}
+                                /> 
+                            </li>)
+                    })}
+                </ul>
+                <div className={styles.slickDots}>
+                {[...products].map((_, index) => (
+                    <div
+                        key={index}
+                        onClick={() => handleDotClick(index)}
+                        className={`${styles.dot} ${index === activeIndex ? styles.active : ''}`}
+                    ></div>
+                ))}
+                </div>
+            </>:
+            <>
+                <ul className={styles.products_grid} ref={containerRef}>
+                {filteredProducts.map((prod : ProductType) => {
+                        return(
+                            <li key={prod.name}>
+                                <Product 
+                                    id={prod._id}
+                                    brand={prod.brand} 
+                                    name={prod.name}
+                                    image = {prod.image}
+                                    price={prod.price}
+                                    showButton={false}
+                                    addToCart={addToCart}
+                                    discount={{isDiscount:isDiscount? isDiscount: false, amount:.33}}
+                                /> 
+                            </li>)
+                    })}
+                </ul>
+            </>
+            }
+        </>
     )
 }

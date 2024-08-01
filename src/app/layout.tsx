@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { Sansita } from 'next/font/google'
+import { Saira_Condensed } from 'next/font/google'
 import './globals.css'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
 import SessionProvider  from './SessionProvider'
-const sansita = Sansita({
-  weight: ["400"],
+
+const sairaCondensed = Saira_Condensed({
+  weight: ["400","700"],
   subsets: ["latin"],
 })
 
@@ -21,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${sansita.className}`}>
+      <body className={`${sairaCondensed.className}`}>
         <SessionProvider>
           <Header />
           {children}

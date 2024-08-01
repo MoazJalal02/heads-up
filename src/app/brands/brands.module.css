@@ -1,0 +1,80 @@
+.container a {
+    color: var(--dark-gray);
+}
+
+.brandsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.brandsList {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.brandButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 38px;
+    background-color: var(--light-gray);
+    color: var(--black);
+}
+
+.brandsList a {
+    color: var(--black);
+}
+
+.brandContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.brandContainer h2 {
+    align-self: self-start;
+}
+
+@media only screen and (min-width: 768px){
+    /* styles for desktops */
+    .container p {
+        margin-top: -60px;
+        text-align: left;
+    }
+
+    .brandsContainer {
+        gap: 96px;
+    }
+
+    .brandsList {
+        gap: 20px;
+    }
+    
+    .brandsList a {
+        color: var(--black);
+    }
+
+    .brandButton {
+        width: 180px;
+        height: 72px;
+    }
+
+    .brandContainer {
+        padding-top: 68px;
+        gap: 32px;
+    }
+
+    .brandContainer h2 {
+        margin-left: 130px;
+    }
+
+    .productsRow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,3 +1,16 @@
+:root {
+    --primary-green: #1E9674;
+    --mid-green: #0F7A5C;
+    --dark-green: #02261C;
+    --black: #000;
+    --white: #fff;
+    --dark-gray: #767676;
+    --mid-gray: #9F9F9F;
+    --mid-light-gray: #E3E3E3;
+    --light-gray: #F1F1F1;
+    --red: #E13838;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -6,26 +19,29 @@ html,body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #14342B;
-    color: #14342B;
+    background-color: var(--dark-green);
+    color: var(--black);
 }
 
 main {
-    background-color: #EAF2E3;
-    padding-bottom: 40px;
+    background-color: var(--white);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 60px;
+    min-height: 690px;
 }
 
 a {
     text-decoration: none;
-    color: #EAF2E3;
+    color: var(--white);
 }
 
 button {
     cursor: pointer;
     font-family: inherit;
-    background: #14342B;
-    color: #EAF2E3;
-    border: 3px solid #14342B;
+    color: var(--white);
     border-radius: 6px;
     width: 100%;
     padding: 3px 0;
@@ -53,33 +69,24 @@ h1,h2,h3,h4,h5,p {
     padding: 0;
 }
 
-h1 /*Headtitle 1*/ { 
-    font-size: 3rem;
+h1 /*Headtitle*/ { 
+    font-size: 2rem;
     font-weight: 700;
 }
 
-h2 /*Headtitle 2*/{
-    font-size: 2rem;
-    font-weight: 600;
+h2 /*Subtitle*/{
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
-h3 /*Body 1*/{
-    font-size: 1.875rem;
-    font-weight: 600;
+h3 /*Body bold*/{
+    font-size: 1rem;
+    font-weight: 700;
 }
 
-h4 /*Body 2*/ {
-    font-size: 1.75rem;
-}
-
-h5 /*Body 3*/{
-    font-size: 1.2rem;
+p /*Body */{
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 24px;
-}
-
-p /*Body 4*/{
-    font-size: .85rem;
 }
 
 /* FOOTER STYLING */
@@ -88,21 +95,36 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-transform: uppercase;
-    height: 40px;
-    color: #EAF2E3;
+    height: 82px;
+    color: var(--white);
     margin-top: auto;
 }
 
-@media only screen and (min-width: 577px) and (max-width: 844px) {
-    /* styles for phones in landscape mode */
-    h1 {
+@media only screen and (min-width: 768px){
+    /* styles for desktops */
+    main {
+        padding: 102px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 96px;
+    }
+
+    h1 /*Headtitle*/{
         font-size: 5rem;
-        line-height: 100px;
     }
 
     
-    h2 /*Headtitle 2*/{
-        font-size: 3.25rem;
+    h2 /*Subtitle*/{
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    h3 /*Body bold*/{
+        font-size: 2rem;
+    }
+    
+    p /*Body */{
+        font-size: 2rem;
     }
 }
