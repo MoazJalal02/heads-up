@@ -71,6 +71,10 @@
     margin: 0 -20px;
 }
 
+.sliderContainer {
+    display: none;
+}
+
 @media only screen and (min-width: 768px){
     /* styles for desktops */
 
@@ -78,7 +82,7 @@
         background-image: url(/assets/big-bg.png);
         background-position: 0 -30px;
         height: 630px;
-        margin: -102px;
+        margin: -106px;
     }
     
     .hero_container h1 {
@@ -99,8 +103,9 @@
     .products_container {
         display: flex;
         flex-direction: column;
-        gap: 96px;
+        gap: 48px;
         text-align: center;
+        margin-top: 48px;
     }
 
     .actionBtn {
@@ -130,5 +135,19 @@
     .brandButton {
         width: 180px;
         height: 72px;
+    }
+
+    .sliderContainer {
+        display: contents;
+    }
+
+    .carouselContainer {
+        display: none;
+    }
+
+    .categoryContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
     }
 }

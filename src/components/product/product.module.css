@@ -59,6 +59,12 @@
 @media only screen and (min-width: 768px){
     /* styles for desktops */
     .productInfos {
-        gap: 58px;
+        gap: 14px;
+    }
+
+    .categoryContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
     }
 }

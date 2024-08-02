@@ -39,8 +39,21 @@
     align-self: self-start;
 }
 
+.sliderContainer {
+    display: none;
+}
+
 @media only screen and (min-width: 768px){
     /* styles for desktops */
+
+    .sliderContainer {
+        display: contents;
+    }
+
+    .gridContainer {
+        display: none;
+    }
+    
     .container p {
         margin-top: -60px;
         text-align: left;

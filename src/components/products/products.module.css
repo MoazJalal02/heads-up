@@ -45,9 +45,12 @@
 .products_grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(156px, 1fr));
-  margin: 0 auto;
   gap: 24px 12px;
   padding: 0;
+}
+
+.products_grid li {
+  max-width: 156px;
 }
 
 
@@ -61,7 +64,6 @@
     .products_grid {
       display: grid;
       margin: 0 auto;
-      place-items: center;
       width: 80%;
       grid-template-columns:  repeat(auto-fill, minmax(322px, 1fr));
       gap: 32px 16px;

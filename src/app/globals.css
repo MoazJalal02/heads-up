@@ -103,11 +103,11 @@ footer {
 @media only screen and (min-width: 768px){
     /* styles for desktops */
     main {
-        padding: 102px;
+        padding: 106px;
         display: flex;
         flex-direction: column;
         text-align: center;
-        gap: 96px;
+        gap: 48px;
     }
 
     h1 /*Headtitle*/{

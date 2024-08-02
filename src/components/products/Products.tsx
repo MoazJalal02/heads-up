@@ -17,16 +17,19 @@ type ProductsProps = {
 export default function Products({ products, isDiscount, layout, brand }: ProductsProps) {
     const [activeIndex, setActiveIndex] = useState<number>(0);
     const containerRef = useRef<HTMLUListElement>(null);
-    const filteredProducts = brand? products.filter((prod: ProductType) => prod.brand === brand): products;
+    const filteredProducts = brand ? products.filter((prod: ProductType) => prod.brand === brand): products;
 
+    useEffect(() => {
+        console.log("All Products:", products);
+        console.log("Brand Filter:", brand);
+        console.log("Filtered Products:", filteredProducts);
+    }, [products, brand, filteredProducts]);
+    
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
         const callback = (entries: IntersectionObserverEntry[]) => {
-            console.log("callback called")
-            console.log('entries: ',entries)
             entries.forEach((entry,i) => {
-                console.log('index: ',i)
                 if(entry.isIntersecting)
                 setActiveIndex(i)
             });
@@ -39,7 +42,6 @@ export default function Products({ products, isDiscount, layout, brand }: Produc
         };
 
         let observer = new IntersectionObserver(callback, options);
-        console.log('Products: ',container.querySelectorAll(`.${styles.productsContainer} > li`))
         container.querySelectorAll(`.${styles.productsContainer} > li`).forEach(item => observer.observe(item))
     }, [activeIndex]);
 
@@ -59,7 +61,7 @@ export default function Products({ products, isDiscount, layout, brand }: Produc
             {layout === 'carousel'? 
             <>
                 <ul className={styles.products_carousel} ref={containerRef}>
-                {filteredProducts.map((prod : ProductType) => {
+                {products.map((prod : ProductType) => {
                         return(
                             <li key={prod.name}>
                                 <Product 

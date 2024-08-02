@@ -1,0 +1,27 @@
+.container a {
+    color: var(--dark-gray);
+}
+
+
+@media only screen and (min-width: 768px){
+    /* styles for desktops */
+    .container {
+        text-align: left;
+    }
+
+    .container p {
+        margin-top: -60px;
+    }
+    
+    .container h2 {
+        margin-left: 10%;
+    }
+
+    .brandProducts {
+        display: flex;
+        flex-direction: column;
+        min-width: 70%;
+        gap: 32px 0;
+        margin: 0 auto;
+    }
+}

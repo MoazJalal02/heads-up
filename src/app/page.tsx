@@ -1,5 +1,6 @@
 import styles from "./home.module.css"
 import Products from "@/components/products/Products"
+import ProductsSlider from "@/components/ProductsSlider/ProductsSlider"
 import { unstable_noStore as noStore } from "next/cache"
 import Link from "next/link"
 
@@ -57,13 +58,23 @@ export default async function Home() {
           <Link href='/top-deals'>
             <h2>TOP DEALS</h2>
           </Link>
-          {<Products products = {products} isDiscount={true} layout='carousel'/>}
+          <div className={styles.sliderContainer}>
+            {<ProductsSlider products= {products} isDiscount={true}/>}
+          </div>
+          <div className={styles.carouselContainer}>
+            {<Products products = {products} isDiscount={true} layout='carousel'/>}
+          </div>
         </div>
         <div className={styles.categoryContainer}>
           <h2>
             NEW ARRIVALS
           </h2>
-          {<Products products = {products} isDiscount={false} layout='carousel'/>}
+          <div className={styles.sliderContainer}>
+            {<ProductsSlider products= {products} isDiscount={false}/>}
+          </div>
+          <div className={styles.carouselContainer}>
+            {<Products products = {products} isDiscount={false} layout='carousel'/>}
+          </div>
         </div>
       </section>
     </main>
