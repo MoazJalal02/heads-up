@@ -55,7 +55,6 @@
     }
     
     .container p {
-        margin-top: -60px;
         text-align: left;
     }
 
@@ -89,5 +88,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .previousLink {
+        margin-top: -60px;
     }
 }

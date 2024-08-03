@@ -21,7 +21,7 @@ export default async function page() {
     
     return (
         <main className={styles.container}>
-            <p><Link href='/'>Home/</Link> <Link href='/brands'>Brands</Link></p>
+            <p className={styles.previousLink}><Link href='/'>Home/</Link> <Link href='/brands'>Brands</Link></p>
             <div className={styles.brandsContainer}>
                 <h1>BRANDS</h1>
                 <div className={styles.brandsList}>

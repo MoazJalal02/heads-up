@@ -1,6 +1,7 @@
 import styles from "./home.module.css"
 import Products from "@/components/products/Products"
 import ProductsSlider from "@/components/ProductsSlider/ProductsSlider"
+import { ProductType } from "@/lib/types"
 import { unstable_noStore as noStore } from "next/cache"
 import Link from "next/link"
 
@@ -20,9 +21,24 @@ const getData = async () => {
   return res.json()
 }
 
+const getLatest =  (products : ProductType[]) => {
+  const latestProducts = products.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  return latestProducts.slice(0,4)
+}
+
+const getDiscounted =  (products: ProductType[]) => {
+  const discounted = products.filter((product) => {
+      return product.discount != 0
+  })
+
+  return discounted.sort((a, b) => new Date(b.discount).getTime() - new Date(a.discount).getTime()).slice(0,4);
+}
+
 export default async function Home() {
   // const products = await getProducts()
-  const products = await getData()
+  const products: ProductType[] = await getData()
+  const latestProducts = getLatest(products) 
+  const discountedProduct = getDiscounted(products)
 
   return (
     <main>
@@ -59,21 +75,21 @@ export default async function Home() {
             <h2>TOP DEALS</h2>
           </Link>
           <div className={styles.sliderContainer}>
-            {<ProductsSlider products= {products} isDiscount={true}/>}
+            {<ProductsSlider products= {discountedProduct} />}
           </div>
           <div className={styles.carouselContainer}>
-            {<Products products = {products} isDiscount={true} layout='carousel'/>}
+            {<Products products = {discountedProduct}  layout='carousel'/>}
           </div>
         </div>
         <div className={styles.categoryContainer}>
-          <h2>
-            NEW ARRIVALS
-          </h2>
+          <Link href='/new-arrivals'>
+            <h2>NEW ARRIVALS</h2>
+          </Link>
           <div className={styles.sliderContainer}>
-            {<ProductsSlider products= {products} isDiscount={false}/>}
+            {<ProductsSlider products= {latestProducts} />}
           </div>
           <div className={styles.carouselContainer}>
-            {<Products products = {products} isDiscount={false} layout='carousel'/>}
+            {<Products products = {latestProducts}  layout='carousel'/>}
           </div>
         </div>
       </section>

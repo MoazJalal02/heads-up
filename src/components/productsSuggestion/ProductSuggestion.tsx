@@ -75,6 +75,7 @@ export default function ProductSuggestion({ id, products }: ProductSuggestionPro
                         image={prod.image}
                         price={prod.price}
                         showButton={false}
+                        discount={prod.discount}
                     />
                 </li>
             ))}

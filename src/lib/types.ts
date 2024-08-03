@@ -7,6 +7,8 @@ export type ProductType = {
     description: string
     price: number
     image: string
+    createdAt: string
+    discount: number
   }
 
 export type cartItem = {

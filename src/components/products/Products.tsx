@@ -9,22 +9,15 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 type ProductsProps = {
     products: any
-    isDiscount?: boolean
     layout: "carousel" | "grid"
     brand?: string
 }
 
-export default function Products({ products, isDiscount, layout, brand }: ProductsProps) {
+export default function Products({ products, layout, brand }: ProductsProps) {
     const [activeIndex, setActiveIndex] = useState<number>(0);
     const containerRef = useRef<HTMLUListElement>(null);
     const filteredProducts = brand ? products.filter((prod: ProductType) => prod.brand === brand): products;
 
-    useEffect(() => {
-        console.log("All Products:", products);
-        console.log("Brand Filter:", brand);
-        console.log("Filtered Products:", filteredProducts);
-    }, [products, brand, filteredProducts]);
-    
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
@@ -63,7 +56,7 @@ export default function Products({ products, isDiscount, layout, brand }: Produc
                 <ul className={styles.products_carousel} ref={containerRef}>
                 {products.map((prod : ProductType) => {
                         return(
-                            <li key={prod.name}>
+                            <li key={prod._id.toString()}>
                                 <Product 
                                     id={prod._id}
                                     brand={prod.brand} 
@@ -72,7 +65,7 @@ export default function Products({ products, isDiscount, layout, brand }: Produc
                                     price={prod.price}
                                     showButton={false}
                                     addToCart={addToCart}
-                                    discount={{isDiscount:isDiscount? isDiscount: false, amount:.33}}
+                                    discount={prod.discount}
                                 /> 
                             </li>)
                     })}
@@ -91,7 +84,7 @@ export default function Products({ products, isDiscount, layout, brand }: Produc
                 <ul className={styles.products_grid} ref={containerRef}>
                 {filteredProducts.map((prod : ProductType) => {
                         return(
-                            <li key={prod.name}>
+                            <li key={prod._id.toString()}>
                                 <Product 
                                     id={prod._id}
                                     brand={prod.brand} 
@@ -100,7 +93,7 @@ export default function Products({ products, isDiscount, layout, brand }: Produc
                                     price={prod.price}
                                     showButton={false}
                                     addToCart={addToCart}
-                                    discount={{isDiscount:isDiscount? isDiscount: false, amount:.33}}
+                                    discount={prod.discount}
                                 /> 
                             </li>)
                     })}

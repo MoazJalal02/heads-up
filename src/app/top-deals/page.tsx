@@ -3,6 +3,7 @@ import styles from './deals.module.css'
 import Link from 'next/link'
 import Products from '@/components/products/Products'
 import { unstable_noStore as noStore} from 'next/cache'
+import { ProductType } from '@/lib/types'
 
 const getData = async () => {
     noStore()
@@ -13,16 +14,25 @@ const getData = async () => {
     }
   
     return res.json()
-  }
+}
+
+const getDiscounted =  (products: ProductType[]) => {
+    const discounted = products.filter((product) => {
+        return product.discount != 0
+    })
+
+    return discounted.sort((a, b) => new Date(b.discount).getTime() - new Date(a.discount).getTime());
+}
 
 export default async function page() {
     const products = await getData()
+    const discountedProducts = getDiscounted(products)
     return (
         <main className={styles.container}>
-            <p><Link href='/'>Home/</Link> <Link href='/top-deals'>Top Deals</Link></p>
+            <p className={styles.previousLink}><Link href='/'>Home/</Link> <Link href='/top-deals'>Top Deals</Link></p>
             <h1>TOP DEALS</h1>
             <>
-                {<Products products = {products} isDiscount={true} layout='grid'/>}
+                {<Products products = {discountedProducts} layout='grid'/>}
             </>
         </main>
     )

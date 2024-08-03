@@ -12,10 +12,9 @@ import Image from "next/image"
 type ProductsSliderProps = {
     products: any
     brand?: string
-    isDiscount?: boolean
 }
 
-export default function ProductsSlider({ products, brand, isDiscount } : ProductsSliderProps) {
+export default function ProductsSlider({ products, brand } : ProductsSliderProps) {
     const containerRef = useRef<HTMLUListElement>(null)
     const filteredProducts = brand? products.filter((prod: ProductType) => prod.brand === brand): products;
 
@@ -46,7 +45,7 @@ export default function ProductsSlider({ products, brand, isDiscount } : Product
             </button>
             <ul className={filteredProducts.length < 3? `${styles.sliderContainer} ${styles.sliderFewItmes}`: styles.sliderContainer} ref={containerRef}>
                 {filteredProducts.map((prod: ProductType) => (
-                    <li key={prod.name} className={styles.sliderItem}>
+                    <li key={prod._id.toString()} className={styles.sliderItem}>
                         <Product 
                             id={prod._id}
                             brand={prod.brand} 
@@ -55,7 +54,7 @@ export default function ProductsSlider({ products, brand, isDiscount } : Product
                             price={prod.price}
                             showButton={false}
                             addToCart={addToCart}
-                            discount={{isDiscount:isDiscount? isDiscount: false, amount:.33}}
+                            discount={prod.discount}
                         />
                     </li>
                 ))}

@@ -15,10 +15,7 @@ interface ProductProps {
     price: number
     showButton: boolean
     addToCart?: (id:objectId) => Promise<void>
-    discount? : {
-      isDiscount: boolean
-      amount: number
-    }
+    discount : number
 }
 
 export default function Product({ id, brand, name, price, image, showButton, discount, addToCart }: ProductProps) {
@@ -41,10 +38,10 @@ export default function Product({ id, brand, name, price, image, showButton, dis
         <Link href={`/products/${id}`} className={styles.productInfos}>
           <h3 className={styles.productBrand}>{brand}</h3>
           <p className={styles.productName}>{name}</p>
-          {discount?.isDiscount?  
+          {discount != 0.00?  
             <div className={styles.priceContainer}>
               <p className={`${styles.price} ${styles.prevPrice}`}>${price}</p>
-              <p className={`${styles.price} ${styles.newPrice}`}>${Math.floor(price - (price*discount.amount))}</p>
+              <p className={`${styles.price} ${styles.newPrice}`}>${Math.floor(price - (price*discount))}</p>
             </div>
             : 
             <p className={styles.price}>${price}</p>
