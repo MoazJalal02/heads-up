@@ -6,6 +6,7 @@ import styles from './products.module.css'
 import { addToCart } from "@/components/addToCartBtn/actions"
 import { useEffect, useRef, useState } from "react"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import ProductCarousel from "./productsCarousel/ProductCarousel"
 
 type ProductsProps = {
     products: any
@@ -53,32 +54,7 @@ export default function Products({ products, layout, brand }: ProductsProps) {
         <>
             {layout === 'carousel'? 
             <>
-                <ul className={styles.products_carousel} ref={containerRef}>
-                {products.map((prod : ProductType) => {
-                        return(
-                            <li key={prod._id.toString()}>
-                                <Product 
-                                    id={prod._id}
-                                    brand={prod.brand} 
-                                    name={prod.name}
-                                    image = {prod.image}
-                                    price={prod.price}
-                                    showButton={false}
-                                    addToCart={addToCart}
-                                    discount={prod.discount}
-                                /> 
-                            </li>)
-                    })}
-                </ul>
-                <div className={styles.slickDots}>
-                {[...products].map((_, index) => (
-                    <div
-                        key={index}
-                        onClick={() => handleDotClick(index)}
-                        className={`${styles.dot} ${index === activeIndex ? styles.active : ''}`}
-                    ></div>
-                ))}
-                </div>
+                <ProductCarousel products={products}/>
             </>:
             <>
                 <ul className={styles.products_grid} ref={containerRef}>
