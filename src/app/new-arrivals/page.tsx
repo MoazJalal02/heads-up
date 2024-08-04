@@ -29,7 +29,7 @@ export default async function page() {
             <p className={styles.previousLink}><Link href='/'>Home/</Link> <Link href='/new-arrivals'>New Arrivals</Link></p>
             <h1>NEW ARRIVALS</h1>
             <>
-                {<Products products = {latestProducts} isDiscount={false} layout='grid'/>}
+                {<Products products = {latestProducts} layout='grid'/>}
             </>
         </main>
     )
