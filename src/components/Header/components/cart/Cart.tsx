@@ -56,14 +56,14 @@ export default function Cart({ size, subtotal } : cartProps) {
             </button>
             <div className={styles.dropdown}>
                 <div className={styles.dropdownContent} ref={dropdownRef} style={{ display: `${isDropdownOpen ? 'block' : 'none'}` }}>
-                    <h5>Cart</h5>
+                    <p>Cart</p>
                     <hr className={styles.line}></hr>
                     <div className={styles.dropdownBottom}>
                         <div className={styles.cartInfo}>
-                            <h5>Items: <span className={styles.asp}>{size}</span></h5>
-                            <h5>Subtotal: <span className={styles.asp}>${subtotal}</span></h5>
+                            <p className={styles.grayText}>Items: <span className={styles.blackText}>{size}</span></p>
+                            <p className={styles.grayText}>Subtotal: <span className={styles.blackText}>${subtotal}</span></p>
                         </div>
-                        <Link className={styles.linkButton} href="/cart">View Cart</Link>
+                        <Link className={styles.linkButton} href="/cart"><h3>View Cart</h3></Link>
                     </div>
                 </div>
             </div>

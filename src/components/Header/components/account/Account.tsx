@@ -52,12 +52,19 @@ export default function Account() {
       <div className={styles.dropdown}>
         {session ? (
           <div className={styles.dropdownContent} ref={dropdownRef} style={{ display: `${isDropdownOpen ? 'block' : 'none'}` }}>
-            {session.user?.role === 'Admin' ? <Link href="/admin/products">Admin</Link> : ''}
-            <Link className={styles.link} href="/api/auth/signout?callbackUrl=/">Logout</Link>
+            {session.user?.role === 'Admin' ? 
+            <Link className={styles.topHover} href="/admin/products">
+              <p >Admin</p>
+            </Link> : ''}
+            <Link className={styles.bottomHover} href="/api/auth/signout?callbackUrl=/">
+              <p >Logout</p>
+              </Link>
           </div>
         ) : (
           <div className={styles.dropdownContent} style={{ display: `${isDropdownOpen ? 'block' : 'none'}` }}>
-            <Link className={styles.link} href="/api/auth/signin?callbackUrl=/">Login</Link>
+            <Link className={styles.middleHover} href="/api/auth/signin?callbackUrl=/">
+              <p >Login</p>
+            </Link>
           </div>
         )}
       </div>

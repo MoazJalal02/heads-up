@@ -1,3 +1,7 @@
+.navContainer {
+    display: none;
+}
+
 .linksContainer {
     display: flex;
     margin: 0 auto;
@@ -21,4 +25,12 @@
     color: #EAF2E3;
     text-decoration: underline 2px solid;
     text-underline-offset: 6px;
+}
+
+@media only screen and (min-width: 768px){
+    /* styles for desktops */
+    .navContainer {
+        display: flex;
+    }
+
 }

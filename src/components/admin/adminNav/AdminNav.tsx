@@ -15,7 +15,7 @@ export default function AdminNav(){
     const pathname = usePathname()
     const isActive = (path:string) => path == pathname
     return (
-        <nav>
+        <nav className={styles.navContainer}>
             <ul className={styles.linksContainer}>
                 { 
                 

@@ -1,7 +1,7 @@
 import { NextResponse,NextRequest } from "next/server"
 import { connectToDb } from "@/lib/dbConnect"
 import { Product } from "@/lib/models/productModel"
-import { objectId } from "@/lib/types"
+import { objectId, ProductType } from "@/lib/types"
 import { revalidatePath } from "next/cache"
 
 type paramsType = {
@@ -26,10 +26,8 @@ export const PUT = async (req:NextRequest, { params }: paramsType) => {
         await connectToDb()
         const { id } = params
         const data = await req.json()
-        const updatedProduct = await Product.findByIdAndUpdate(id, data, { new: true})
-
-        console.log('Product updated successfully')
-        console.log('Updated Product: ',updatedProduct)
+        const updatedProduct: ProductType | null = await Product.findByIdAndUpdate(id, data, { new: true})
+        
         return NextResponse.json(updatedProduct)
     } catch(err){
         console.log(err)

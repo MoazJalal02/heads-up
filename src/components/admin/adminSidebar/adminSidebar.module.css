@@ -1,0 +1,27 @@
+.linksContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    padding: 0;
+    gap: 16px;
+}
+
+.linksContainer p:hover {
+    color: var(--light-gray);
+}
+
+.linksContainer .active {
+    color: #EAF2E3;
+    text-decoration: underline 2px solid;
+    text-underline-offset: 6px;
+}
+
+
+@media only screen and (min-width: 768px){
+    /* styles for desktops */
+    .sidebarContainer {
+        display: none;
+    }
+
+}

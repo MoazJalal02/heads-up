@@ -1,14 +1,13 @@
 .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 15px;
-    height: 260px;
-    margin-bottom: 50px;
+    gap: 8px;
 }
 
 .imageContainer {
-    min-width: 260px;
-    max-width: 280px;
+    width: 116px;
+    width: 116px;
     height: auto;
 }
 
@@ -16,73 +15,9 @@
     border-radius: 6px;
 }
 
-.infosContainer {
-    height: 100%;
-    padding: 0;
-}
-
-.infosContainer li,
-.infosContainer label {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.infosContainer li h4,
-.infosContainer label h4 {
-    line-height: 1;
-}
-
-.infosContainer li div,
-.infosContainer label input,
-.infosContainer label textarea  {
-    box-sizing: border-box;
-    min-width: 271px;
-    min-height: 50px;
-    border: 3px solid #BECFA0;
-    background: none;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    text-transform: capitalize;
-    color: #7A8450;
-}
-
-.infosContainer label input, 
-.infosContainer label textarea {
-    outline: none;
-    transition: all ease .8s;
-    font-size: 1.2rem;
-    padding-left: 8px;
-    color: #14342B;
-}
-
-.infosContainer label input::placeholder {
-    color: #AFAFAF;
-    opacity: .8;
-}
-
-.infosContainer label input:focus {
-    border: 3px solid #14342B;
-}
-
-.infosContainer label input::-webkit-outer-spin-button,
-.infosContainer label input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.infosContainer label input[type=number] {
-    appearance: textfield;
-  -moz-appearance: textfield;
-}
-
-.infosContainer li div h5 {
-    margin-left: 8px;
-}
-
 .editContainer {
-    margin-top: 3px;
+    width: 24px;
+    height: 24px;
     margin-left: auto;
     cursor: pointer;
     transition: all ease .8s;
@@ -90,6 +25,63 @@
 
 .editContainer:hover {
     opacity: .8;
+}
+
+.infosContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    padding: 0;
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.infoContent {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 32px;
+    border: 2px solid var(--dark-gray);
+    background: none;
+    border-radius: 4px;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    color: var(--black);
+}
+
+.infoContent {
+    outline: none;
+    font-family: inherit;
+    transition: all ease .8s;
+    font-size: 1;
+    color: var(--black);
+}
+
+.infoContent::placeholder {
+    color: var(--mid-gray);
+    opacity: .8;
+}
+
+.infoContent:focus {
+    border: 3px solid var(--black);
+}
+
+.infoContent::-webkit-outer-spin-button,
+.infoContent::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.infoContent[type=number] {
+    appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 .infosContainer textarea {
@@ -105,59 +97,49 @@
     color: #7A8450;
 }
 
-
-.leftSection {
-    display: flex;
-    height: 100%;
-    min-width: 260px;
-    margin-left: auto;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
 .buttonsContainer {
     display: flex;
     justify-content: space-between;
-    height: 50px;
-    gap: 8px;
+    width: 100%;
+    height: 80px;
+    gap: 24px;
 }
 
+
 .buttonContainer {
-    height: 100%;
-    width: 50%;
+    width: 45%;
+    max-width: 120px;
 }
 
 .buttonContainer button {
-    height: 100%;
-    width: 100%;
+    height: 32px;
     background: none;
-    border-radius: 10px;
-    font-weight: 700;
+    border-radius: 6px;
 }
 
 
 .deleteBtn {
-    color: #E05C5C;
-    border: 3px solid #E05C5C;
+    color: var(--red);
+    border: 2px solid var(--red);
 }
 
 .submitBtn {
-    color: #14342B;
-    border: 3px solid #14342B;
+    color: var(--black);
+    border: 2px solid var(--black);
 }
 
 .deleteBtn:hover,
 .deleteBtn:focus {
     opacity: 1;
-    background-color: #E05C5C;
-    color: #EAF2E3;
+    background-color: var(--red);
+    color: var(--white);
 }
 
 .submitBtn:hover,
 .submitBtn:focus {
     opacity: 1;
-    background-color: #14342B;
-    color: #EAF2E3;
+    background-color: var(--black);
+    color: var(--white);
 }
 
 .loader {
@@ -170,7 +152,7 @@
 .spinner {
     width: 100%;
     aspect-ratio: 1;
-    --_c:no-repeat radial-gradient(farthest-side,#EAF2E3 92%,#0000);
+    --_c:no-repeat radial-gradient(farthest-side,var(--black) 92%,#0000);
     background: 
       var(--_c) top,
       var(--_c) left,
@@ -182,16 +164,32 @@
   @keyframes l7 {to{transform: rotate(.5turn)}
 }
 
+.redSpinner {
+    --_c:no-repeat radial-gradient(farthest-side,var(--red) 92%,#0000);
+}
+
+button:hover .spinner, 
+button:focus .spinner {
+    --_c:no-repeat radial-gradient(farthest-side,var(--white) 92%,#0000);
+}
+
+.submitBtn:hover,
+.submitBtn:focus {
+    opacity: 1;
+    background-color: var(--black);
+    color: var(--white);
+}
+
 .red {
-    color: #E05C5C;
+    color: var(--red);
 }
 
 .green {
-    color: #7A8450;
+    color: var(--black);
 }
 
 .successMessage {
-  font-size: .8rem;
+    line-height: 1;
 }
 
 .vissible {

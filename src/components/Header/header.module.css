@@ -1,5 +1,6 @@
 .nav {
     display: flex;
+    justify-content: space-between;
     height: 78px;
     width: 88.8%;
     min-width: 320px;
@@ -57,8 +58,6 @@
 .li a {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: .875rem;
 }
 
 .subHeader {

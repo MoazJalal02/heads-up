@@ -24,7 +24,7 @@ export default async function page() {
     const products = await getData()
 
     return (
-        <main className={styles.container}>
+        <div className={styles.container}>
             <ul className={styles.productsContainer}>
                 {   products && 
                     products.map((prod: ProductType,id:number)=>{
@@ -35,7 +35,7 @@ export default async function page() {
                                     brand= {prod.brand} 
                                     name= {prod.name}
                                     image = {prod.image}
-                                    description = {prod.description}
+                                    discount = {prod.discount}
                                     price= {prod.price}
                                     apiUrl={apiUrl}
                                 />
@@ -44,6 +44,6 @@ export default async function page() {
                     })
                 }
             </ul>
-        </main>
+        </div>
     )
 }

@@ -1,14 +1,9 @@
-import AdminNav from '@/components/adminNav/AdminNav'
+import AdminNav from '@/components/admin/adminNav/AdminNav'
 import styles from './layout.module.css'
-import { Saira_Condensed } from 'next/font/google'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../api/auth/[...nextauth]/nextAuthOptions'
 import { redirect } from 'next/navigation'
-
-const sairaCondensed = Saira_Condensed({
-    weight: ["400","600","700"],
-    subsets: ["latin"],
-})
+import AdminSidebar from '@/components/admin/adminSidebar/AdminSidebar'
 
 export const metadata = {
     title: "Heads Up Admin Center",
@@ -33,12 +28,15 @@ export default async function AdminLayout({
         }
 
         return (
-            <>
-                <header className={styles.header}>
-                    <h1 className={sairaCondensed.className}>Admin Center</h1>
+            <main className={styles.container}>
+                <nav className={styles.navContainer}>
                     <AdminNav />
-                </header>
-                {children}
-            </>
+                    <AdminSidebar />
+                </nav>
+                <section className={styles.contentContainer}>
+                    <h1>Admin Center</h1>
+                    {children}
+                </section>
+            </main>
         )
 }
