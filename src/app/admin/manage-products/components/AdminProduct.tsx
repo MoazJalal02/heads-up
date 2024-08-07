@@ -195,7 +195,7 @@ export default function AdminProduct({ id, brand, name, price, discount, image, 
                             }
                         </button>
                         {(isPendingDelete) &&
-                            <p className={`${styles.successMessage} ${showDeleteMessage ? styles.visible : styles.hidden} ${styles.red}`}>{deleteMessage ? 'Product deleted Successfully' : 'Failed to delete prodcut'}</p>
+                            <p className={`${styles.successMessage} ${showDeleteMessage ? styles.visible : styles.hidden} ${styles.red}`}>{deleteMessage ? 'Product deleted Successfully' : 'Failed to delete product'}</p>
                         }
                     </div>
                     <div className={styles.buttonContainer}>
@@ -206,7 +206,7 @@ export default function AdminProduct({ id, brand, name, price, discount, image, 
                             }
                         </button>
                         {(isPendingSubmit) &&
-                            <p className={`${styles.successMessage} ${showUpdateMessage ? styles.visible : styles.hidden} ${styles.green}`}>{updateMessage ? 'Product updated Successfully' : 'Failed to update prodcut'}</p>
+                            <p className={`${styles.successMessage} ${showUpdateMessage ? styles.visible : styles.hidden} ${styles.green}`}>{updateMessage ? 'Product updated Successfully' : 'Failed to update product'}</p>
                         }
                     </div>
                 </div>
