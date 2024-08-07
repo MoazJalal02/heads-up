@@ -34,7 +34,7 @@ export default async function AdminLayout({
                     <AdminSidebar />
                 </nav>
                 <section className={styles.contentContainer}>
-                    <h1>Admin Center</h1>
+                    <h1 className={styles.mobileHeadTitle}>Admin Center</h1>
                     {children}
                 </section>
             </main>

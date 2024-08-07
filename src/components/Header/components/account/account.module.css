@@ -65,24 +65,23 @@
     display: block;
 }
 
-@media only screen and (min-width: 780px) {
+@media only screen and (min-width: 768px){
     .accountIcon {
         width: 31px;
         height: 41px;
     }
 
     .dropdownContent {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
         position: absolute;
         text-align: center;
-        border-radius: 6px;
-        background-color: var(--mid-light-gray);
-        width: 70px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        top: 12px;
-        right: -25.5px;
-        z-index: 1;
+        gap: 12px;
+        width: 176px;
+        top: 24px;
+        right: -76px;
+    }
+
+    .dropdownContent a{
+        padding: 16px 32px;
+        justify-content: center;
     }
 }

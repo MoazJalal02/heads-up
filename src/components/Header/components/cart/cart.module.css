@@ -48,10 +48,6 @@
     z-index: 1;
 }
 
-.dropdownContent a:hover {
-    background-color: #c2ccac;
-}
-
 .dropdown:hover .dropdownContent {
     display: block;
 }
@@ -102,12 +98,12 @@
     color: var(--black);
 }
 
-@media only screen and (min-width: 780px) {
+@media only screen and (min-width: 768px){
     .cartIcon {
         width: 36px;
         height: 38px;
     }
-
+    
     .cartSize {
         position: absolute;
         width: 20px;
@@ -116,5 +112,27 @@
         right: -12px;
         font-size: 1rem;
         border-radius: 50%;
+    }
+
+    .dropdownContent {
+        position: absolute;
+        text-align: center;
+        gap: 12px;
+        width: 332px;
+        height: fit-content;
+        top: 24px;
+        right: -76px;
+        padding: 16px 0;
+    }
+
+    .dropdownContent a{
+        padding: 16px 32px;
+        justify-content: center;
+    }
+
+    .dropdownContent .linkButton {
+        border-radius: 6px;
+        height: 76px;
+        border: 5px solid var(--black);
     }
 }

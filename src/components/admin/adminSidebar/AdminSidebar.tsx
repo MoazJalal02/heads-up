@@ -7,10 +7,8 @@ import { usePathname } from 'next/navigation'
 export default function AdminSidebar(){
 
     const navLinks = [
-        { id: 1, name: 'Products', path: '/admin/products' },
-        { id: 1, name: 'Add Product', path: '/admin/add-product' },
-        { id: 1, name: 'Users', path: '/admin/users' },
-        { id: 1, name: 'Orders', path: '/admin/orders' },
+        { id: 1, name: 'Manage Products', path: '/admin/manage-products' },
+        { id: 2, name: 'Add Product', path: '/admin/add-product' },
     ]
     const pathname = usePathname()
     const isActive = (path:string) => path == pathname

@@ -1,0 +1,23 @@
+.container {
+    width: 100%;
+}
+
+.productsContainer {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    flex-direction: column;
+    gap: 36px;
+}
+
+@media only screen and (min-width: 768px){
+    /* styles for desktops */
+    .productsContainer {
+        display: flex;
+        width: 100%;
+        padding: 0;
+        flex-direction: column;
+        gap: 72px;
+        margin: 0;
+    }
+}

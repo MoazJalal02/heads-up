@@ -60,7 +60,7 @@
     outline: none;
     font-family: inherit;
     transition: all ease .8s;
-    font-size: 1;
+    font-size: 1rem;
     color: var(--black);
 }
 
@@ -82,19 +82,6 @@
 .infoContent[type=number] {
     appearance: textfield;
   -moz-appearance: textfield;
-}
-
-.infosContainer textarea {
-    height: 80px;
-    font-size: 1rem;
-    resize: none;
-    text-overflow: ellipsis;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
-
-.activeEdit {
-    color: #7A8450;
 }
 
 .buttonsContainer {
@@ -198,4 +185,81 @@ button:focus .spinner {
 
 .hidden {
   display: none;
+}
+
+@media only screen and (min-width: 768px){
+    /* styles for desktops */
+    .container {
+        width: 90%;
+        max-width: 1228px;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .imageContainer {
+        width: 320px;
+        height: 320px;
+    }
+    
+    .imageContainer img {
+        border-radius: 6px;
+    }
+
+    .editContainer {
+        width: 28px;
+        height: 28px;
+        position: absolute;
+        right: 0;
+        top: 90px;
+        margin-top: 2px;
+    }
+
+    .infosContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 360px;
+        padding: 100px 0;
+    }
+    
+    .infoContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .infoContent {
+        height: 52px;
+        border: 3px solid var(--dark-gray);
+        padding: 0 6px;
+        font-size: 2rem;
+        color: var(--black);
+    }
+
+    .buttonsContainer {
+        display: flex;
+        justify-content: space-between;
+        width: 420px;
+        margin-left: auto;
+        height: 132px;
+        gap: 24px;
+        margin-top: 400px;
+    }
+
+    .buttonContainer {
+        width: 50%;
+        max-width: 230px;
+    }
+
+    .buttonContainer button {
+        height: 54px;
+    }
+
+    .buttonContainer button p {
+        font-size: 2rem;
+    }
 }

@@ -53,7 +53,7 @@ export default function Account() {
         {session ? (
           <div className={styles.dropdownContent} ref={dropdownRef} style={{ display: `${isDropdownOpen ? 'block' : 'none'}` }}>
             {session.user?.role === 'Admin' ? 
-            <Link className={styles.topHover} href="/admin/products">
+            <Link className={styles.topHover} href="/admin/manage-products">
               <p >Admin</p>
             </Link> : ''}
             <Link className={styles.bottomHover} href="/api/auth/signout?callbackUrl=/">
