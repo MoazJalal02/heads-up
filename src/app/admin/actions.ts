@@ -8,16 +8,13 @@ export async function createProduct(formData: FormData) {
     const name = formData.get('name')
     const image = formData.get('image')
     const price = formData.get('price')
-    const discount = formData.get('discount')
     const description = formData.get('description')
-    
     const product = {
         brand,
         name,
         image,
         price,
         description,
-        discount,
     }
     try {
         Product.create(product)
