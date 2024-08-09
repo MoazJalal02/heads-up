@@ -1,37 +1,38 @@
 .buttonsContainer {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-}
-
-.amountBtnContainer,
-.buttonContainer {
-    display: flex;
-    align-items: center;
-    height: 60px;
-    border-radius: 12px;
+    gap: 16px;
 }
 
 .amountBtnContainer {
+    display: flex;
     justify-content: space-between;
-    background-color: rgb(161, 176, 132,.25);
-    border: 3px solid #898989;
+    border: 3px solid var(--black);
     padding: 0 15px;
+    align-items: center;
+    height: 60px;
+    border-radius: 6px;
 }
 
 .amountBtnContainer button {
-    display: flex;
-    justify-content: center;
+    width: fit-content;
     background: none;
     border: none;
-    width: 30px;
-    color: #14342B;
+    color: var(--black);
 }
 
-.addButton {
-    justify-content: center;
-    font-weight: 400;
-    color: #EAF2E3;
+.addBtnContainer {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.addtBtn {
+    border: none;
+    height: 60px;
+    background-color: var(--primary-green);
 }
 
 .suggestContainer {
@@ -40,7 +41,90 @@
     flex-direction: column;
 }
 
+.addtBtn:hover,
+.addtBtn:focus {
+    opacity: .8;
+}
+
 .productsContainer {
     display: flex;
 }
 
+.loader {
+    position: relative;
+    width: 17.5px;
+    height: 17.5px;
+    margin: 0 auto;
+}
+
+.spinner {
+    width: 100%;
+    aspect-ratio: 1;
+    --_c: no-repeat radial-gradient(farthest-side, var(--white) 92%, #0000);
+    background:
+        var(--_c) top,
+        var(--_c) left,
+        var(--_c) right,
+        var(--_c) bottom;
+    background-size: 5px 5px;
+    animation: l7 1s infinite;
+}
+
+@keyframes l7 {
+    to {
+        transform: rotate(.5turn)
+    }
+}
+
+button:hover .spinner,
+button:focus .spinner {
+    --_c: no-repeat radial-gradient(farthest-side, var(--white) 92%, #0000);
+}
+
+.red {
+    color: var(--red);
+}
+
+.green {
+    color: var(--primary-green);
+}
+
+.successMessage {
+    line-height: 1;
+}
+
+.vissible {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    /* styles for desktops */
+
+    .buttonsContainer {
+        flex-direction: row;
+        gap: 32px;
+    }
+
+    .amountBtnContainer {
+        width: 152px;
+        height: 80px;
+    }
+
+    .addBtnContainer {
+        height: 148px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .addtBtn {
+        height: 80px;
+        width: 380px
+    }
+
+}
