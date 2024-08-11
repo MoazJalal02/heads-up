@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './single-product.module.css'
 import Image from 'next/image'
 import { unstable_noStore as noStore } from 'next/cache';
-import { getLatest } from '@/app/page';
 import { addToCart } from '@/components/addToCartBtn/actions'
 import { objectId, ProductType } from '@/lib/types'
 import QuantAddBtn from '@/components/addToCartBtn/quantAddBtn'
@@ -31,6 +30,11 @@ const getProductsData = async () => {
   }
 
   return res.json()
+}
+
+const getLatest =  (products : ProductType[]) => {
+  const latestProducts = products.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  return latestProducts.slice(0,4)
 }
 
 export default async function page({ params }: { params: { id: objectId } }) {
