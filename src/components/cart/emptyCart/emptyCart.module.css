@@ -1,51 +1,57 @@
 .container {
-    padding: 10em 5.5%;
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    gap: 32px;
 }
 
-.headText {
-    color: #7A8450;
-    font-weight: 600;
-}
-
-.linkSection {
+.linksSection {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
-    gap: 10px;
-}
-
-.subText {
-    font-weight: 600;
+    color: var(--dark-gray);
+    gap: 16px;
 }
 
 .link {
     width: 200px;
-    height: 50px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 6px;
     transition: all ease .8s;
-}
-
-.link:hover,
-.link:focus {
-    opacity: .8;
-}
-
-.link h5 {
     text-transform: uppercase;
-    font-weight: 700;
 }
 
 .shoppingLink {
-    background-color: #A1B084;
+    border: 2px solid var(--black);
+    color: var(--black);
 }
 
 .signInLink {
-    background-color: #14342B;
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
+}
+
+.shoppingLink:hover,
+.shoppingLink:focus {
+    color: var(--white);
+    background-color: var(--black);
+}
+
+.signInLink:hover,
+.signInLink:focus {
+    color: var(--white);
+    background-color: var(--primary-green);
+}
+
+.suggestionSection {
+    display: flex;
+}
+
+@media only screen and (min-width: 768px) {
+    /* styles for desktops */
+
 }

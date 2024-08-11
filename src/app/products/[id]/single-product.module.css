@@ -43,23 +43,6 @@
     color: var(--red);
 }
 
-.suggestContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.categoryContainer {
-    margin: 0 -20px;
-}
-
-.sliderContainer {
-    display: none;
-}
-
-
-
-
 @media only screen and (min-width: 768px) {
     /* styles for desktops */
     .container {
@@ -107,20 +90,5 @@
         width: 60%;
         margin-left: auto;
         margin-top: 24px;
-    }
-
-    .sliderContainer {
-        display: contents;
-    }
-
-    .carouselContainer {
-        display: none;
-    }
-
-    .categoryContainer {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-        margin: 0;
     }
 }

@@ -27,8 +27,8 @@ export default function Product({ id, brand, name, price, image, showButton, dis
             src={(image)} 
             alt="" 
             sizes="100vw"
-            width={736}
-            height={736}
+            width={480}
+            height={480}
             style={{
               width: '100%',
               height: 'auto',
