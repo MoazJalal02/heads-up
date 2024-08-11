@@ -21,7 +21,7 @@ const getData = async () => {
   return res.json()
 }
 
-export const getLatest =  (products : ProductType[]) => {
+const getLatest =  (products : ProductType[]) => {
   const latestProducts = products.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
   return latestProducts.slice(0,4)
 }
