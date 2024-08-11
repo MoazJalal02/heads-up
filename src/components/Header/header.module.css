@@ -75,6 +75,7 @@
 
     .logoIcon {
         width: 110px;
+        height: fit-content;
     }
 
     .headerLinks {

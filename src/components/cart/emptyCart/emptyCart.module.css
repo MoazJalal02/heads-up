@@ -53,5 +53,17 @@
 
 @media only screen and (min-width: 768px) {
     /* styles for desktops */
+    .container {
+        margin-top: 0;
+        gap: 48px;
+    }
 
+    .linksSection {
+        gap: 16px;
+    }
+    
+    .link {
+        width: 350px;
+        height: 80px;
+    }
 }

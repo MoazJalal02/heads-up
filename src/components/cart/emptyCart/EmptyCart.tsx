@@ -8,15 +8,15 @@ export default async function EmptyCart() {
 
     return (
         <div className={styles.container}>
-            <h2>YOUR CART IS EMPTY</h2>
+            <h1>YOUR CART IS EMPTY</h1>
             <div className={styles.linksSection}>
                 <h3>Fill it with our latest deals!</h3>
                 <Link href='/top-deals' className={`${styles.link} ${styles.shoppingLink}`}><h2>Continue Shopping</h2></Link>
             </div>
-            { session && 
+            { !session && 
                 <div className={styles.linksSection}>
                 <h3>Or sign in to your cart</h3>
-                <Link href='/signin' className={`${styles.link} ${styles.signInLink}`}><h2>Sign in</h2></Link>
+                <Link href='/api/auth/signin?callbackUrl=/' className={`${styles.link} ${styles.signInLink}`}><h2>Sign in</h2></Link>
                 </div>
             }
         </div>

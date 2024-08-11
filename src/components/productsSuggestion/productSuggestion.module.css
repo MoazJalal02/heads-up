@@ -15,6 +15,10 @@
 @media only screen and (min-width: 768px) {
     /* styles for desktops */
 
+    .suggestContainer {
+        text-align: center;
+    }
+
     .sliderContainer {
         display: contents;
     }

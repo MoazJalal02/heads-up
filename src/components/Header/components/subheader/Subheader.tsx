@@ -8,7 +8,7 @@ export default function Subheader() {
   const { id } = useParams()
 
   return (
-    path != `/products/${id}`? 
+    path != `/products/${id}` && path != `/cart`? 
     <nav className={styles.subHeader}>
         <Link href='/new-arrivals' >
             <h2>NEW ARRIVALS</h2>
