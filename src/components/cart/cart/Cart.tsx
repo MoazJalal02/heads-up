@@ -1,12 +1,6 @@
 import styles from './cart.module.css'
 import CartItem from '../cartItem/CartItem'
-import { Saira_Condensed } from 'next/font/google'
 import type { shoppingCart } from '@/lib/types'
-
-const sairaCondensed = Saira_Condensed({
-    weight: ["400","600","700"],
-    subsets: ["latin"],
-})
 
 type CartProps = {
     cart: shoppingCart
@@ -14,12 +8,10 @@ type CartProps = {
 
 export default function Cart({cart}:CartProps) {
     return (
-        <div>
+        <>
             <div className={styles.cartHeader}>
-                <div>
-                    <p>{cart.size} {`${cart.size == 1? 'item':'items'}`}</p>
-                    <h5>Total: ${cart.subtotal}</h5>
-                </div>
+                <h3>{cart.size} {`${cart.size == 1? 'item':'items'}`}</h3>
+                <h3>Total: ${cart.subtotal}</h3>
             </div>
             <div className={styles.container}>
                 <div className={styles.cartItemContainer}>
@@ -32,6 +24,7 @@ export default function Cart({cart}:CartProps) {
                                     brand = {item.product.brand}
                                     name = {item.product.name}
                                     price = {item.product.price}
+                                    discount={item.product.discount}
                                     quantity = {item.quantity}
                                 />
                             </div>
@@ -39,8 +32,25 @@ export default function Cart({cart}:CartProps) {
                         )
                     })}
                 </div>
-                <button className={styles.CheckoutBtn}>Checkout</button>
+                <div className={styles.orderContainer}>
+                    <h2>ORDER SUMMARY</h2>
+                    <div className={styles.subtotalContainer}>
+                        <p>Subtotal <span className={styles.midDarkGray}>{`( ${cart.size} ${cart.size == 1? 'item':'items'} )`}</span></p>
+                        <p>{cart.subtotal}</p>
+                    </div>
+                    <hr></hr>
+                    <div className={styles.totalContainer}>
+                        <h3>Order Total</h3>
+                        <div>
+                            <h3>{cart.subtotal}</h3>
+                            <p className={styles.midDarkGray}>Inlusive of VAT</p>
+                        </div>
+                    </div>
+                    <div className={styles.actionContainer}>
+                        <button className={styles.CheckoutBtn}>Checkout</button>
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     )
 }

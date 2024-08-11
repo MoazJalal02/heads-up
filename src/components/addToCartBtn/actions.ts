@@ -10,15 +10,11 @@ export const addToCart = async (id: objectId, quantity?: number) => {
     const cart = (await getCart()) ?? (await createCart())
     const productInCart = cart.items.some((item) => item.product._id == id);
 
-    console.log("Product in cart: ",productInCart)
-    console.log("Quantity: ", quantity)
-
     if(productInCart){
         await CartItem.updateOne(
             { 'product': id }, 
             { $inc: { quantity: quantity } }
           )
-          console.log("Product increased!")
     }
     else {
         const product = await Product.findById(id);
@@ -44,7 +40,7 @@ export const addToCart = async (id: objectId, quantity?: number) => {
   };
   
 
-export const increment = async (id: string) =>  {
+export const increment = async (id: objectId) =>  {
     try{
         await CartItem.updateOne(
             { 'product': id }, 
@@ -57,7 +53,7 @@ export const increment = async (id: string) =>  {
     }
 }
 
-export const decrement  = async (id: string) =>  {
+export const decrement  = async (id: objectId) =>  {
     try{
         const cartItem = await CartItem.findOne({ 'product': id });
         if( cartItem && cartItem.quantity > 1){
@@ -73,7 +69,7 @@ export const decrement  = async (id: string) =>  {
     }
 }
 
-export const deleteCartItem = async (id: string) =>  {
+export const deleteCartItem = async (id: objectId) =>  {
     try {
         // Find the cart item to be deleted
         const cartItem = await CartItem.findOne({ 'product': id });

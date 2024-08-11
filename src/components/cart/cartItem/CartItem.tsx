@@ -1,32 +1,22 @@
 import Image from "next/image";
 import styles from './cartItem.module.css'
-import { Saira_Condensed } from 'next/font/google'
-import { Sansita } from 'next/font/google'
 import QuantityButton from "./quantityButton/QuantityButton";
 import { increment, decrement, deleteCartItem } from '@/components/addToCartBtn/actions'
 import TrashIcon from "./trashIcon/TrashIcon";
+import { objectId } from '@/lib/types'
 
-
-const sansita = Sansita({
-  weight: ["400"],
-  subsets: ["latin"],
-})
-
-const sairaCondensed = Saira_Condensed({
-    weight: ["400","600","700"],
-    subsets: ["latin"],
-})
 
 type cartItemProps = {
-  id: string
+  id: objectId
   image: string,
   brand: string,
   name: string,
   price: number,
-  quantity: number
+  quantity: number,
+  discount: number
 }
 
-export default function CartItem({id, image, brand, name, price, quantity } : cartItemProps) {
+export default function CartItem({id, image, brand, name, price, discount, quantity } : cartItemProps) {
   return (
     <div className={styles.container}>
         <div className={styles.imageContainer}>
@@ -44,13 +34,20 @@ export default function CartItem({id, image, brand, name, price, quantity } : ca
           ></Image>
         </div>
         <div className={styles.infoContainer}>
-            <div className={styles.infoTop}>
-                <h4>{brand}</h4>  
-                <TrashIcon id={id} deleteCartItem={deleteCartItem}/>
+            <h3>{brand}</h3>  
+            <p>{name}</p>
+            {discount != 0.00?  
+            <div className={styles.priceContainer}>
+              <p className={`${styles.price} ${styles.prevPrice}`}>${price}</p>
+              <p className={`${styles.price} ${styles.newPrice}`}>${Math.floor(price - (price*discount))}</p>
             </div>
-            <h5 className={styles.productName}>{name}</h5>
-            <h5 className={styles.productPrice}>${price}</h5>
-            <QuantityButton id={id} quantity={quantity} increment={increment} decrement={decrement}/>
+            : 
+            <p className={styles.price}>${price}</p>
+            }
+            <div className={styles.actionContainer}>
+              <QuantityButton id={id} quantity={quantity} increment={increment} decrement={decrement}/>
+              <TrashIcon id={id} deleteCartItem={deleteCartItem}/>
+            </div>
         </div>
     </div>
   )

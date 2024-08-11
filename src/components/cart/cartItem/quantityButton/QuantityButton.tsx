@@ -1,5 +1,6 @@
 "use client"
 
+import { objectId } from '@/lib/types'
 import styles from './quantityButton.module.css'
 import { Saira_Condensed } from 'next/font/google'
 import { useTransition } from 'react'
@@ -10,10 +11,10 @@ const sairaCondensed = Saira_Condensed({
 })
 
 type QuantityButtonProps = {
-    id:string 
+    id: objectId 
     quantity:number
-    increment: (id: string) => Promise<void>
-    decrement:(id: string) => Promise<void>
+    increment: (id: objectId) => Promise<void>
+    decrement:(id: objectId) => Promise<void>
 }
 
 export default function QuantityButton({ id, quantity, increment, decrement }:QuantityButtonProps) {
@@ -25,11 +26,11 @@ export default function QuantityButton({ id, quantity, increment, decrement }:Qu
                 className={`${quantity=== 1 && styles.disabled}`} 
                 disabled={(quantity === 1)}
                 onClick={async () => startTransition( async () => await decrement(id) )}
-            ><h5>-</h5></button>
-            <h5 className={sairaCondensed.className}>{quantity}</h5>
+            ><p>-</p></button>
+            <p className={sairaCondensed.className}>{quantity}</p>
             <button 
                 onClick={async () => startTransition( async () => await increment(id) )}
-            ><h5>+</h5></button>
+            ><p>+</p></button>
         </div>
         )
 }

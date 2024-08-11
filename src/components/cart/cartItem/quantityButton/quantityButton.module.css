@@ -1,18 +1,12 @@
 .amountBtnContainer {
     display: flex;
     align-items: center;
-    height: 35px;
-    width: 50px;
-    border-radius: 4px;
+    height: 20px;
+    width: 42px;
+    border-radius: 2px;
     justify-content: space-between;
-    background-color: rgb(161, 176, 132,.25);
-    border: 2px solid #14342B;
-    align-self: flex-end;
-    padding: 0 2.5px;
-}
-
-.amountBtnContainer h5 {
-    font-size: 1.5rem;
+    border: 2px solid var(--black);
+    padding: 0 6px;
 }
 
 .amountBtnContainer button {
@@ -22,12 +16,11 @@
     background: none;
     border: none;
     width: fit-content;
-    color: #14342B;
-    padding: 0;
+    color: var(--black);
 }
 
 .disabled h5{
-    color: #B8C2BF;
+    color: var(--dark-gray);
 }
 
 .amountBtnContainer button h5 {

@@ -1,33 +1,35 @@
 .cartHeader {
-    height: 50px;
-    width: 100%;
-    background-color: #A1B084;
+    height: 32px;
+    width: calc(100% + 40px);
+    background-color: var(--dark-gray);
+    color: var(--white);
     display: flex;
+    gap: 8px;
+    margin: -20px -20px 0 -20px;
     align-items: center;
     justify-content: center;
 }
 
-.cartHeader div {
-    display: flex;
-    align-items:first baseline ;
-    gap: 10px;
-    text-align: center;
-}
-
-.cartHeader h5 {
-    color: #EAF2E3;
-}
-
 .container {
-    padding: 0 5.5%;
-    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 72px;    
 }
 
 .cartItemContainer {
-    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.subtotalContainer, 
+.totalContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.midDarkGray {
+    color: var(--mid-gray);
 }
 
 .CheckoutBtn {
