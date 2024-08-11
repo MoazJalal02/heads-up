@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './single-product.module.css'
 import Image from 'next/image'
 import { unstable_noStore as noStore } from 'next/cache';
@@ -41,7 +40,10 @@ export default async function page({ params }: { params: { id: objectId } }) {
   const { id } = params
   const product: ProductType = await getProductData(id)
   const products = await getProductsData()
-  const latestProducts = getLatest(products)
+  const filterProducts = products.filter((prod : ProductType) => {
+    return prod._id !== product._id
+  })
+  const latestProducts = getLatest(filterProducts)
 
   return (
     <main className={styles.container}>
