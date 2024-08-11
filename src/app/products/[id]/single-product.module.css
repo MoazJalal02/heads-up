@@ -1,23 +1,126 @@
-.bottomContainer {
-    padding: 0 5.5%;
+.productContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+.infoContainer {
+    display: flex;
+    align-items: flex-end;
+}
+
+.nameContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .imageContainer {
     position: relative;
     width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
 }
 
-.productImage {
-    object-fit: cover;
+.imageContainer img {
+    border-radius: 6px;
 }
 
-.infoContainer {
-    margin-top: 20px;
+.priceContainer {
+    display: flex;
+    margin-left: auto;
+    gap: 8px;
+}
+
+.prevPrice {
+    text-decoration-line: line-through;
+    font-feature-settings: 'ordn' on;
+    color: var(--dark-gray);
+}
+
+.newPrice {
+    color: var(--red);
+}
+
+.suggestContainer {
     display: flex;
     flex-direction: column;
+    gap: 16px;
 }
 
-.productName {
-    color: #898989;
-    margin-bottom: 10px;
+.categoryContainer {
+    margin: 0 -20px;
+}
+
+.sliderContainer {
+    display: none;
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+    /* styles for desktops */
+    .container {
+        text-align: left;
+    }
+    
+    .productContainer {
+        position: relative;
+        gap: 32px;
+    }
+
+    .infoContainer {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        gap: 16px;
+        text-align: left;
+        margin-left: auto;
+    }
+
+    .nameContainer {
+        margin-right: auto;
+    }
+
+    .priceContainer {
+        display: flex;
+        margin: 0;
+        margin-right: auto;
+        gap: 8px;
+    }
+
+    .imageContainer {
+        position: absolute;
+        width: 460px;
+        height: 460px;
+        max-width: 460px;
+    }
+
+    .descriptionContainer {
+        width: 60%;
+        margin-left: auto;
+    }
+
+    .buttonContainer {
+        width: 60%;
+        margin-left: auto;
+        margin-top: 24px;
+    }
+
+    .sliderContainer {
+        display: contents;
+    }
+
+    .carouselContainer {
+        display: none;
+    }
+
+    .categoryContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin: 0;
+    }
 }

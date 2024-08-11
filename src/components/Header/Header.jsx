@@ -5,6 +5,7 @@ import Cart from './components/cart/Cart'
 import { getCart } from '@/app/cart/actions'
 import Image from 'next/image'
 import logo from '../../../public/assets/logoMobile.svg'
+import Subheader from './components/subheader/Subheader'
 
 export default async function Header() {
     const cart = await getCart()
@@ -31,17 +32,7 @@ export default async function Header() {
                     </li>
                 </ul>
             </nav>
-            <nav className={styles.subHeader}>
-                <Link href='/new-arrivals' >
-                    <h2>NEW ARRIVALS</h2>
-                </Link>
-                <Link href='/brands' >
-                    <h2>BRANDS</h2>
-                </Link>
-                <Link href='/top-deals' >
-                    <h2>TOP DEALS</h2>
-                </Link>
-            </nav>
+            <Subheader />
         </header>
     )
 }
