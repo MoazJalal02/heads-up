@@ -55,7 +55,7 @@ export default function Cart({ size, subtotal } : cartProps) {
                 <span className={styles.cartSize}>{size}</span>
             </button>
             <div className={styles.dropdown}>
-                <div className={styles.dropdownContent} ref={dropdownRef} style={{ display: `${isDropdownOpen ? 'block' : 'none'}` }}>
+                <div className={styles.dropdownContent} ref={dropdownRef} style={{ display: `${isDropdownOpen ? 'flex' : 'none'}` }}>
                     <p>Cart</p>
                     <hr className={styles.line}></hr>
                     <div className={styles.dropdownBottom}>

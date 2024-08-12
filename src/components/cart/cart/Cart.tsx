@@ -10,7 +10,7 @@ type CartProps = {
 const getDiscount = (cartItems: cartItem[]) => {
     var totalDiscount = 0;
     cartItems.forEach(item => {
-        if(item.product.discount !== 0.00) totalDiscount += item.product.discount * item.product.price
+        if(item.product.discount !== 0.00) totalDiscount += (item.product.discount * item.product.price) * item.quantity
     })
 
     return totalDiscount
@@ -29,8 +29,8 @@ export default function Cart({cart}:CartProps) {
                 <div className={styles.cartItemContainer}>
                     {cart.items.map((item,i )=> {
                         return (
-                            <div key={i}>
                                 <CartItem 
+                                    key={JSON.parse(JSON.stringify(item.product._id))}
                                     id = {JSON.parse(JSON.stringify(item.product._id))}
                                     image = {item.product.image}
                                     brand = {item.product.brand}
@@ -39,7 +39,6 @@ export default function Cart({cart}:CartProps) {
                                     discount={item.product.discount}
                                     quantity = {item.quantity}
                                 />
-                            </div>
 
                         )
                     })}

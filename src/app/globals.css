@@ -49,10 +49,6 @@ button {
     transition: all ease 1s;
 }
 
-button p {
-    font-size: .9rem;
-}
-
 button:hover,
 button:focus {
     opacity: .8;
