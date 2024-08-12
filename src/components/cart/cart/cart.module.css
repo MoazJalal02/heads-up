@@ -22,6 +22,12 @@
     gap: 32px;
 }
 
+.discountSubtotalContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .subtotalContainer, 
 .totalContainer {
     display: flex;
@@ -32,10 +38,76 @@
     color: var(--mid-gray);
 }
 
+.red {
+    color: var(--red);
+}
+
+.orderContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+}
+
+.divideLine {
+    width: 100%;
+    border: 1px solid var(--mid-gray);
+}
+
+.totalContent {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+}
+
+
+.actionContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    gap: 16px;
+    align-items: center;
+}
+
+.link,
 .CheckoutBtn {
-    margin-top: 30px;
-    width: 60%;
-    height: 50px;
-    font-size: 1.2rem;
+    width: 200px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all ease .8s;
     text-transform: uppercase;
+}
+
+.shoppingLink {
+    border: 2px solid var(--black);
+    color: var(--black);
+}
+
+.shoppingLink:hover,
+.shoppingLink:focus {
+    color: var(--white);
+    background-color: var(--black);
+}
+
+.CheckoutBtn {
+    background-color: var(--primary-green);
+    border: none;
+}
+
+
+@media only screen and (min-width: 768px) {
+    /* styles for desktops */
+
+    .linksSection {
+        gap: 16px;
+    }
+    
+    .link {
+        width: 350px;
+        height: 80px;
+    }
 }
